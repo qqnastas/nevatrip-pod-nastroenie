@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T20:36:30+00:00",
+ "generated": "2026-11-17T21:23:53+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -16,7 +16,8 @@
     "lights",
     "music"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/ehkskursiya-v-novogodnyuyu-noch.jpg"
   },
   {
    "uri": "day/rozhdestvenskiy-uzhin-kruiz-po-neve",
@@ -36,7 +37,8 @@
     "night",
     "short"
    ],
-   "format": "Теплоход"
+   "format": "Теплоход",
+   "photo": "img/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg"
   },
   {
    "uri": "day/progulka-s-ekskursiey-na-teplohode-zimoy",
@@ -53,7 +55,8 @@
     "cozy",
     "short"
    ],
-   "format": "Теплоход"
+   "format": "Теплоход",
+   "photo": "img/progulka-s-ekskursiey-na-teplohode-zimoy.jpg"
   },
   {
    "uri": "day/katolicheskoe-rozhdestvo-v-peterburge",
@@ -69,7 +72,8 @@
     "history",
     "guide"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/katolicheskoe-rozhdestvo-v-peterburge.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/rozhdestvenskie-istorii",
@@ -86,7 +90,8 @@
     "guide",
     "festive"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/rozhdestvenskie-istorii.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/novogodnyaya-ehkskursiya-v-zimnie-kanikuly",
@@ -102,7 +107,8 @@
     "short",
     "guide"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/elochnyie-igrushki",
@@ -120,7 +126,8 @@
     "kids",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/elochnyie-igrushki.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/novogodnij-kronshtadt",
@@ -137,7 +144,8 @@
     "night",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/novogodnij-kronshtadt.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ozhidanie-rozhdestva",
@@ -154,7 +162,8 @@
     "guide",
     "history"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/ozhidanie-rozhdestva.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/rozhdestvenskij-vyborg",
@@ -172,7 +181,8 @@
     "guide",
     "history"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/rozhdestvenskij-vyborg.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg",
@@ -187,7 +197,8 @@
     "history",
     "cozy"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-po-vechernemu-peterburgu",
@@ -201,7 +212,8 @@
     "night",
     "guide"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/avtobusnaya-ekskursiya-po-vechernemu-peterburgu.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov",
@@ -215,7 +227,8 @@
     "trip",
     "history"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/misticheskij-peterburg-ekskursiya",
@@ -231,7 +244,8 @@
     "guide",
     "history"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/misticheskij-peterburg-ekskursiya.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/peterburg-ekskursii-vyborg",
@@ -246,7 +260,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/peterburg-ekskursii-vyborg.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-v-pushkin",
@@ -261,7 +276,8 @@
     "trip",
     "history"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ekskursiya-v-pushkin.jpg"
   },
   {
    "uri": "day/obzornaya-ekskursiya-po-peterburgu",
@@ -275,7 +291,8 @@
     "guide",
     "short"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-strelnu",
@@ -291,7 +308,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ehkskursiya-v-strelnu.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-lomonosov",
@@ -307,7 +325,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ehkskursiya-v-lomonosov.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-gatchinu",
@@ -323,7 +342,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ehkskursiya-v-gatchinu.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu",
@@ -339,7 +359,8 @@
     "guide",
     "food"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnayia-ekskursiya-v-pushkin-pavlovsk",
@@ -355,7 +376,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/avtobusnayia-ekskursiya-v-pushkin-pavlovsk.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-pavlovsk",
@@ -371,7 +393,8 @@
     "cozy",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ehkskursiya-v-pavlovsk.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
@@ -385,7 +408,8 @@
     "guide",
     "short"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi",
@@ -401,7 +425,8 @@
     "palace",
     "indoor"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh",
@@ -416,7 +441,8 @@
     "history",
     "guide"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/avtobusnaya-ehkskursiya-dvorcy-romanovyh.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-velikij-novgorod",
@@ -431,7 +457,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ehkskursiya-v-velikij-novgorod.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti",
@@ -445,7 +472,8 @@
     "guide",
     "history"
    ],
-   "format": "Автобус"
+   "format": "Автобус",
+   "photo": "img/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ekskursiya-v-petergof",
@@ -462,7 +490,8 @@
     "guide",
     "museum"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ekskursiya-v-petergof.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/kareliya-ekskursii",
@@ -476,7 +505,8 @@
     "trip",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/kareliya-ekskursii.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada",
@@ -491,7 +521,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg"
   },
   {
    "uri": "avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya",
@@ -507,7 +538,8 @@
     "history",
     "guide"
    ],
-   "format": "Выезд"
+   "format": "Выезд",
+   "photo": "img/ekskursiya-v-pushkin-s-poseshcheniem-liceya.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-v-kunstkameru",
@@ -524,7 +556,8 @@
     "history",
     "guide"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-kunstkameru.jpg"
   },
   {
    "uri": "muzei/obzornaya-ekskursiya-po-russkomu-muzeyu",
@@ -540,7 +573,8 @@
     "guide",
     "short"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/obzornaya-ekskursiya-po-russkomu-muzeyu.jpg"
   },
   {
    "uri": "peshie-ekskursii/posledniy-put-aleksandra-ii",
@@ -554,7 +588,8 @@
     "history",
     "guide"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/posledniy-put-aleksandra-ii.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-v-yusupovskiy-dvorets",
@@ -571,7 +606,8 @@
     "mystic",
     "short"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-yusupovskiy-dvorets.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-na-kreyser-avrora",
@@ -587,7 +623,8 @@
     "guide",
     "short"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/ekskursiya-na-kreyser-avrora.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha",
@@ -603,7 +640,8 @@
     "guide",
     "short"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-v-zolotuyu-kladovuyu-ermitazha",
@@ -619,7 +657,8 @@
     "history",
     "short"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-zolotuyu-kladovuyu-ermitazha.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-v-osobnyak-kelha",
@@ -634,7 +673,8 @@
     "history",
     "short"
    ],
-   "format": "Пешком"
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-osobnyak-kelha.jpg"
   }
  ]
 }

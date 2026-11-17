@@ -74,6 +74,32 @@ def load_sheet():
         return {u: {"tags": t, "format": ""} for u, t in old.items()}, warn, "data/tags.json"
 
 
+THUMB_W = 640
+def make_thumbs(items):
+    """Маленькие копии фото прогулок в site/img/. Скачиваем только то, чего еще нет."""
+    try:
+        from PIL import Image
+    except Exception:
+        print("Pillow не установлен, фото пропущены"); return
+    import io as _io
+    out_dir = ROOT / "site/img"; out_dir.mkdir(parents=True, exist_ok=True)
+    for it in items:
+        slug = it["uri"].split("/")[-1]
+        dest = out_dir / f"{slug}.jpg"
+        if not dest.exists() and it.get("img"):
+            try:
+                req = urllib.request.Request(it["img"], headers={"User-Agent": UA})
+                raw = urllib.request.urlopen(req, timeout=40).read()
+                im = Image.open(_io.BytesIO(raw)).convert("RGB")
+                h = round(im.height * THUMB_W / im.width)
+                im.resize((THUMB_W, h), Image.LANCZOS).save(dest, "JPEG", quality=72, optimize=True, progressive=True)
+                time.sleep(1)
+            except Exception as e:
+                print(f"Фото не скачалось: {it['uri']} ({e})")
+        if dest.exists():
+            it["photo"] = f"img/{slug}.jpg"
+
+
 def main():
     now = time.time()
     found = {}
@@ -107,6 +133,7 @@ def main():
         print(f"Сбор подозрителен: активных {len(items)} < {MIN_EXPECTED}. catalog.json не обновлен.")
         return 1
 
+    make_thumbs(items)
     out = {"generated": datetime.now(timezone.utc).isoformat(timespec="seconds"), "items": items}
     path = ROOT / "data/catalog.json"
     try:

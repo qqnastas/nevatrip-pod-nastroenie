@@ -63,11 +63,15 @@ h1,h2,h3,p{margin:0}
 .num{font-family:var(--display);font-weight:900;font-size:min(27vw,116px);line-height:.95;letter-spacing:-4px;margin:2px 0 0 -4px;position:relative;z-index:1}
 .deck{position:relative;flex:1;min-height:0;margin:-6px 0 16px}
 .card,.back{position:absolute;inset:0 0 16px 0}
-.back{border-radius:36px;background:var(--silver);border:3px solid var(--navy);transform:rotate(-4deg) scale(.94);transform-origin:50% 100%}
+.card.back{transform:rotate(-4deg) scale(.94);transform-origin:50% 100%;pointer-events:none}
+.back .card-in{box-shadow:none;border:3px solid var(--navy)}
 .card{touch-action:none;user-select:none;-webkit-user-select:none;will-change:transform;cursor:grab;transform:rotate(1.5deg)}
 .card.drag{cursor:grabbing}
 .card-in{position:absolute;inset:0;border-radius:36px;background:var(--navy);color:#fff;overflow:hidden;box-shadow:0 16px 32px rgba(0,0,20,.35)}
 .card canvas{position:absolute;left:0;top:0;width:100%;height:100%}
+.card .photo{position:absolute;left:0;right:0;top:0;height:64%;background:var(--navy) center/cover no-repeat}
+.card .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,48,.0) 40%,rgba(11,16,48,.55) 75%,var(--navy) 100%)}
+.card .glow{mix-blend-mode:screen;opacity:.75}
 .card .txt{position:absolute;left:0;right:0;bottom:0;padding:22px}
 .card h2{font-family:var(--display);font-weight:900;font-size:min(9.2vw,36px);line-height:1;letter-spacing:-1px;overflow-wrap:break-word}
 .card p{margin-top:10px;font-size:15px;line-height:21px;opacity:.88}
@@ -93,8 +97,10 @@ h1,h2,h3,p{margin:0}
 .results{display:flex;flex-direction:column;gap:26px;margin-top:2px}
 .res{background:#fff;border:3px solid var(--navy);border-radius:32px;box-shadow:6px 6px 0 var(--navy);display:flex;flex-direction:column;position:relative}
 .res.first{background:var(--gold)}
-.res-art{position:relative;height:112px;background:var(--navy);border-radius:29px 29px 0 0;overflow:hidden}
+.res-art{position:relative;height:150px;background:var(--navy);border-radius:29px 29px 0 0;overflow:hidden}
 .res-art canvas{position:absolute;inset:0;width:100%;height:100%}
+.res-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.res-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,16,48,0) 55%,rgba(11,16,48,.35))}
 .res-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:12px}
 .res h3{font-family:var(--display);font-weight:900;font-size:19px;line-height:1.2;letter-spacing:-.3px;overflow-wrap:break-word}
 .pct{position:absolute;right:12px;top:12px;transform:rotate(-3deg);background:var(--mag);color:#fff;border:3px solid var(--navy);border-radius:20px;padding:5px 12px;font-family:var(--display);font-weight:600;font-size:11px;line-height:16px;z-index:2}
@@ -225,6 +231,16 @@ async function load(){
   /* карточка нужна, только если ее главный тег (вес 2) есть минимум у двух активных прогулок */
   const count = {}; CAT.forEach(i=>i.tags.forEach(t=>count[t]=(count[t]||0)+1));
   DECK = deck.cards.filter(c=>Object.entries(c.tags).some(([t,w])=>w>=2 && (count[t]||0)>=2));
+  /* фото для карточек: у каждой свое, из прогулок с ее главным тегом */
+  const used = new Set();
+  DECK.forEach(c=>{
+    const prim = Object.entries(c.tags).filter(([t,w])=>w>=2).map(([t])=>t);
+    const rank = list => list.map(i=>({i, k:Object.entries(c.tags).reduce((a,[t,w])=>a+(w>0&&i.tags.includes(t)?w:0),0)})).sort((a,b)=>b.k-a.k);
+    const own = CAT.filter(i=>i.photo && prim.some(t=>i.tags.includes(t)));
+    const pool = rank(own.filter(i=>!used.has(i.uri)));
+    const pick = pool.length ? pool[0] : rank(own)[0];   /* если свободных фото нет, берем уже использованное */
+    if (pick){ c.photo = pick.i.photo; used.add(pick.i.uri); }
+  });
   $("#season").textContent = deck.sticker;
   const names = DECK.map(c=>c.title).join(" · ")+" · ";
   $("#ticker").innerHTML = "<span>"+names+"</span><span>"+names+"</span>";
@@ -256,26 +272,31 @@ function renderProgress(){
   $("#progress").innerHTML = DECK.map((_,i)=>`<i class="${i<idx?'done':i===idx?'cur':''}"></i>`).join("");
   $("#num").textContent = String(Math.min(idx+1,DECK.length)).padStart(2,"0");
 }
+function faceHTML(v, front){
+  return `<div class="card-in">${v.photo?`<div class="photo" style="background-image:url('${v.photo}')"></div>`:""}<canvas class="glow" aria-hidden="true"></canvas>
+    ${front?'<div class="stamp yes">Хочу</div><div class="stamp no">Мимо</div>':''}
+    <div class="txt"><h2>${v.title}</h2><p>${v.text}</p></div></div>
+    ${front?`<span class="sticker tag">${cap(v.kicker)}</span>`:''}`;
+}
 function renderDeck(){
   const deck = $("#deck"); deck.innerHTML = "";
   if (idx >= DECK.length) return finish();
   renderProgress();
-  const v = DECK[idx];
-  if (DECK[idx+1]) { const b=document.createElement("div"); b.className="back"; b.setAttribute("aria-hidden","true"); deck.appendChild(b); }
+  const v = DECK[idx], nx = DECK[idx+1];
+  if (nx) { const b=document.createElement("div"); b.className="card back"; b.setAttribute("aria-hidden","true"); b.innerHTML=faceHTML(nx,false); deck.appendChild(b);
+    requestAnimationFrame(()=>paint(b.querySelector("canvas"), nx.seed)); }
   const c = document.createElement("article"); c.className="card"; c.tabIndex=0;
   c.setAttribute("aria-label", v.title+". "+v.text);
-  c.innerHTML = `<div class="card-in"><canvas aria-hidden="true"></canvas>
-    <div class="stamp yes">Хочу</div><div class="stamp no">Мимо</div>
-    <div class="txt"><h2>${v.title}</h2><p>${v.text}</p></div></div>
-    <span class="sticker tag">${cap(v.kicker)}</span>`;
+  c.innerHTML = faceHTML(v,true);
   deck.appendChild(c);
   requestAnimationFrame(()=>paint(c.querySelector("canvas"), v.seed));
+  if (DECK[idx+2] && DECK[idx+2].photo) new Image().src = DECK[idx+2].photo;   /* заранее грузим фото следующей карточки */
   $("#live").textContent = v.title+". "+v.text;
   bindDrag(c);
 }
 function decide(val){
   if (busy || idx>=DECK.length) return;
-  const c = $("#deck .card"); if(!c) return;
+  const c = $("#deck article.card"); if(!c) return;
   busy = true; answers[idx] = val; track("vibe_swipe",{card:DECK[idx].id, value:val});
   const done = ()=>{ idx++; busy=false; renderDeck(); };
   if (reduce){ done(); return; }
@@ -324,7 +345,7 @@ function finish(){
   $("#results").innerHTML = lastTop.map(({it,s},i)=>{
     const pct = Math.max(41,Math.min(98,Math.round(55+43*s)));
     return `<article class="res ${i===0?'first':''}"><span class="pct">${pct}% совпало</span>
-      <div class="res-art"><canvas aria-hidden="true"></canvas></div>
+      <div class="res-art">${it.photo?`<img src="${it.photo}" alt="" loading="lazy">`:`<canvas aria-hidden="true"></canvas>`}</div>
       <div class="res-body"><h3>${it.title}</h3>
       <div class="chips">${[it.format,it.duration,"от "+rub(it.price_from)].filter(Boolean).map(c=>`<span>${c}</span>`).join("")}</div>
       <p class="why">${why(it,p)}</p>
