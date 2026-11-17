@@ -235,6 +235,7 @@ async function load(){
   /* фото для карточек: у каждой свое, из прогулок с ее главным тегом */
   const used = new Set();
   DECK.forEach(c=>{
+    if (c.photo) return;   /* фото закреплено вручную в decks.json */
     const prim = Object.entries(c.tags).filter(([t,w])=>w>=2).map(([t])=>t);
     const rank = list => list.map(i=>({i, k:Object.entries(c.tags).reduce((a,[t,w])=>a+(w>0&&i.tags.includes(t)?w:0),0)})).sort((a,b)=>b.k-a.k);
     const own = CAT.filter(i=>i.photo && prim.some(t=>i.tags.includes(t)));
@@ -335,6 +336,25 @@ function why(item,p){
   const liked = item.tags.filter(t=>(p[t]||0)>0).sort((a,b)=>p[b]-p[a]).slice(0,2).map(t=>TAGWORDS[t]).filter(Boolean);
   return liked.length ? "<b>Совпало:</b> "+liked.join(", ") : "Ближе всего к твоим ответам.";
 }
+const pctOf = sc => Math.max(41,Math.min(98,Math.round(55+43*sc)));
+const cheaper = (a,b) => (a.it.price_from-b.it.price_from) || ((a.it.duration_sec||0)-(b.it.duration_sec||0));
+/* выдача: места 1 и 2 по общему совпадению, место 3 из другого лайкнутого направления;
+   при разнице до 5 п.п. выше то, что дешевле и короче */
+function pickTop(p){
+  const now = Date.now();
+  let pool = CAT.filter(i=>i.next_time*1000>now).map(it=>{ const sc=score(it,p); return {it, s:sc, pct:pctOf(sc)}; }).sort((a,b)=>b.s-a.s);
+  const take = list => { if(!list.length) return null; const lead=list[0]; return list.filter(r=>lead.pct-r.pct<=5).sort(cheaper)[0]; };
+  const out = [];
+  for (let k=0;k<2;k++){ const pick=take(pool); if(!pick) break; out.push(pick); pool=pool.filter(r=>r!==pick); }
+  const covered = new Set(); out.forEach(r=>r.it.tags.forEach(t=>covered.add(t)));
+  const dirs = DECK.map((v,i)=>({v,i})).filter(o=>answers[o.i]>0)
+    .map(o=>Object.entries(o.v.tags).filter(([t,w])=>w>=2).map(([t])=>t)).filter(prim=>prim.length && !prim.some(t=>covered.has(t)));
+  let third = null;
+  dirs.forEach(prim=>{ const pick=take(pool.filter(r=>prim.some(t=>r.it.tags.includes(t)))); if (pick && (!third || pick.s>third.s)) third=pick; });
+  if (!third) third = take(pool);
+  if (third) out.push(third);
+  return out;
+}
 const rub = n => n.toLocaleString("ru-RU")+" ₽";
 function finish(){
   const p = prefs();
@@ -342,7 +362,7 @@ function finish(){
   if (!anyYes){ buildSnow(); track("vibe_no_match"); show("s-empty"); return; }
   const now = Date.now();
   /* перед показом снова проверяем, что у прогулки есть ближайшая дата */
-  lastTop = CAT.filter(i=>i.next_time*1000>now).map(it=>({it,s:score(it,p)})).sort((a,b)=>b.s-a.s).slice(0,3);
+  lastTop = pickTop(p);
   $("#results").innerHTML = lastTop.map(({it,s},i)=>{
     const pct = Math.max(41,Math.min(98,Math.round(55+43*s)));
     return `<article class="res ${i===0?'first':''}"><span class="pct">${pct}% совпало</span>
@@ -373,10 +393,15 @@ document.addEventListener("keydown", e=>{
 /* ---------- билет для сторис ---------- */
 let TYPES = [];
 const NAVY="#0B1030", MAG="#FF3DA5", GOLD="#FFC94D", ICE="#7DD3FC", EBLUE="#3D5AFE", DEEP="#2A3FBF", SILVER="#DCE8FF";
-function vibeType(p){
-  let best=null, bs=0;
-  for (const ty of TYPES){ const sc = ty.tags.reduce((a,t)=>a+(p[t]||0),0)/Math.sqrt(ty.tags.length); if (sc>bs){bs=sc;best=ty;} }
-  return best || TYPES[0];
+function vibeType(p, top){
+  /* название вечера должно подходить подобранной прогулке: по формату и общим тегам */
+  const okFmt = ty => !ty.formats || !top || ty.formats.includes(top.format);
+  let pool = TYPES.filter(ty=>okFmt(ty) && (!top || ty.tags.some(t=>top.tags.includes(t))));
+  if (!pool.length) pool = TYPES.filter(okFmt);
+  if (!pool.length) pool = TYPES;
+  let best=null, bs=-1e9;
+  for (const ty of pool){ const sc = ty.tags.reduce((a,t)=>a+(p[t]||0),0)/Math.sqrt(ty.tags.length); if (sc>bs){bs=sc;best=ty;} }
+  return best;
 }
 function rr(x,a,b,w,h,r){ x.beginPath(); x.moveTo(a+r,b); x.arcTo(a+w,b,a+w,b+h,r); x.arcTo(a+w,b+h,a,b+h,r); x.arcTo(a,b+h,a,b,r); x.arcTo(a,b,a+w,b,r); x.closePath(); }
 function wrapLines(x, text, maxW){
@@ -387,52 +412,79 @@ function star4(x,cx,cy,s,c){ x.fillStyle=c; x.beginPath(); const h=s/2, k=s*.14;
 async function drawTicket(){
   await Promise.all(['900 100px Unbounded','600 30px Unbounded','600 40px Onest','400 30px Onest'].map(f=>document.fonts.load(f)));
   const cv=$("#tk"), x=cv.getContext("2d"), W=1080, H=1920;
-  const p=prefs(), type=vibeType(p), top=lastTop[0].it;
+  const p=prefs(), top=lastTop[0].it, type=vibeType(p, top);
+  const ft=(fam,w,size)=>`${w} ${size}px ${fam}`;
+  const meas=(font,ls,text)=>{ x.font=font; setLS(x,ls); const w=x.measureText(text).width; setLS(x,0); return w; };
+  /* настроения человека: до пяти лайкнутых карточек, сначала самые близкие к прогулке */
+  const liked=DECK.map((v,i)=>({v,i})).filter(o=>answers[o.i]>0).map(o=>({v:o.v, k:Object.entries(o.v.tags).reduce((a,[t,w])=>a+(w>0&&top.tags.includes(t)?w:0),0)})).sort((a,b)=>b.k-a.k).slice(0,5);
+  const meta=[top.format,top.duration].filter(Boolean).join(", ")+" · по расписанию";
+  const subTxt=type.sub;
+  const BOTTOM=1650, LEFT=60, RIGHT=1020;
+
+  /* подбираем размеры так, чтобы все поместилось и ничего не перекрывалось */
+  const attempt=(titleFs, chipFs, cardFs)=>{
+    x.font=ft("Unbounded",900,titleFs); setLS(x,-titleFs*.04);
+    const tl=wrapLines(x,type.name,900); const tw=Math.max(...tl.map(l=>x.measureText(l).width)); setLS(x,0);
+    if (tl.length>3 || tw>940) return null;
+    const titleBottom=400+tl.length*titleFs*.9;
+    /* плашки: раскладываем в строки */
+    const chipH=Math.round(chipFs*2.1), gapX=22, gapY=46;
+    const items=liked.map(o=>({text:o.v.title, w:meas(ft("Unbounded",600,chipFs),0,o.v.title)+chipFs*1.8}));
+    const rows=[]; let cur=[], cw=0;
+    items.forEach(it=>{ if (it.w>RIGHT-LEFT) it.w=RIGHT-LEFT; if (cur.length && cw+gapX+it.w>RIGHT-LEFT){ rows.push(cur); cur=[]; cw=0; } cur.push(it); cw+=(cur.length>1?gapX:0)+it.w; });
+    if (cur.length) rows.push(cur);
+    let y=titleBottom+70; const placed=[];
+    rows.forEach((row,ri)=>{ let px=LEFT+(ri%2?30:0); row.forEach(it=>{ placed.push({...it,x:px,y,i:placed.length}); px+=it.w+gapX; });
+      const wr=Math.max(...row.map(i=>i.w)), wn=rows[ri+1]?Math.max(...rows[ri+1].map(i=>i.w)):0;
+      y+=chipH+26+0.04*(wr+wn); });
+    y+=10;
+    x.font=ft("Onest",600,40); const sl=wrapLines(x,subTxt,900);
+    const subY=y; y+=sl.length*54+30;
+    x.font=ft("Unbounded",900,cardFs); setLS(x,-1); const wl=wrapLines(x,top.title,808); setLS(x,0);
+    x.font=ft("Onest",400,30); const ml=wrapLines(x,meta,808);
+    const lh=Math.round(cardFs*1.13);
+    const ch=44+32+14+wl.length*lh+14+ml.length*40+44;
+    if (y+ch>BOTTOM) return null;
+    return {titleFs,tl,titleBottom,chipFs,chipH,placed,subY,sl,cardFs,wl,ml,lh,ch,cy:y};
+  };
+  let L=null;
+  outer: for (let tf=196; tf>=96; tf-=8) for (const cf of [40,36,32,28]) for (const kf of [46,42,38,34]){ L=attempt(tf,cf,kf); if (L) break outer; }
+  if (!L) L=attempt(96,28,34) || {titleFs:96,tl:[type.name],titleBottom:500,chipFs:28,chipH:59,placed:[],subY:700,sl:[subTxt],cardFs:34,wl:[top.title],ml:[meta],lh:38,ch:260,cy:1300};
+
   /* фон */
   const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,ICE); g.addColorStop(1,EBLUE); x.fillStyle=g; x.fillRect(0,0,W,H);
   const circle=(cx,cy,r,c,a=1,blur=0)=>{ x.save(); x.globalAlpha=a; if(blur) x.filter=`blur(${blur}px)`; x.fillStyle=c; x.beginPath(); x.arc(cx,cy,r,0,Math.PI*2); x.fill(); x.restore(); };
   circle(940,120,380,GOLD); circle(70,1590,410,DEEP,.95); circle(910,1110,210,GOLD,.9,45); circle(50,550,170,"#fff",.5,55);
   x.strokeStyle=NAVY; x.lineWidth=14; x.beginPath(); x.arc(40,-60,280,0,Math.PI*2); x.stroke();
   [[130,560,78,"#fff"],[950,460,64,GOLD],[110,1260,70,GOLD],[960,1260,56,"#fff"],[710,320,46,"#fff"],[890,1730,60,GOLD],[145,1785,50,"#fff"],[540,880,40,"#fff"]].forEach(([a,b,s,c])=>star4(x,a+s/2,b+s/2,s,c));
-  const ft=(fam,w,size)=>`${w} ${size}px ${fam}`;
   /* дата */
   const date=new Date().toLocaleDateString("ru-RU",{day:"numeric",month:"long"});
   x.save(); x.translate(60,250); x.rotate(4*Math.PI/180); x.font=ft("Unbounded",600,34); setLS(x,0);
   const dw=x.measureText(date).width+68; rr(x,0,0,dw,72,36); x.fillStyle=NAVY; x.fill(); x.fillStyle="#fff"; x.textBaseline="middle"; x.fillText(date,34,38); x.restore();
-  /* бренд */
   x.fillStyle=NAVY; x.textBaseline="top"; x.font=ft("Unbounded",600,28); x.fillText("nevatrip · Что хочется",60,336);
-  /* название вечера: подбираем размер */
-  let fs=196, lines; 
-  for(; fs>=96; fs-=8){ x.font=ft("Unbounded",900,fs); setLS(x,-fs*.04); lines=wrapLines(x,type.name,900); if(lines.length<=3 && Math.max(...lines.map(l=>x.measureText(l).width))<=940) break; }
-  x.save(); x.translate(44,400); x.rotate(3*Math.PI/180); x.fillStyle=NAVY; x.textBaseline="top"; x.font=ft("Unbounded",900,fs); setLS(x,-fs*.04);
-  lines.forEach((l,i)=>x.fillText(l,0,i*fs*.9)); x.restore(); setLS(x,0);
-  const titleBottom=400+lines.length*fs*.9;
-  /* настроения человека: три лайкнутые карточки, сначала самые близкие к прогулке */
-  const liked=DECK.map((v,i)=>({v,i})).filter(o=>answers[o.i]>0).map(o=>({v:o.v, k:Object.entries(o.v.tags).reduce((a,[t,w])=>a+(w>0&&top.tags.includes(t)?w:0),0)})).sort((a,b)=>b.k-a.k).slice(0,3);
-  const pos=[[70,-5,"#fff",NAVY],[500,6,ICE,NAVY],[90,-3,MAG,"#fff"]]; let y=Math.max(titleBottom+70,820);
-  liked.forEach((o,i)=>{ const [px,rot,fill,tc]=pos[i]; x.font=ft("Unbounded",600,40); setLS(x,0); const w=x.measureText(o.v.title).width+72;
-    x.save(); x.translate(Math.min(px, W-w-30), y+i*112); x.rotate(-rot*Math.PI/180); rr(x,0,0,w,84,42); x.fillStyle=fill; x.fill(); x.lineWidth=6; x.strokeStyle=NAVY; x.stroke();
-    x.fillStyle=tc; x.textBaseline="middle"; x.fillText(o.v.title,36,44); x.restore(); });
-  y = y + Math.max(liked.length,1)*112 + 28;
+  /* название вечера */
+  x.save(); x.translate(44,400); x.rotate(3*Math.PI/180); x.fillStyle=NAVY; x.textBaseline="top"; x.font=ft("Unbounded",900,L.titleFs); setLS(x,-L.titleFs*.04);
+  L.tl.forEach((l,i)=>x.fillText(l,0,i*L.titleFs*.9)); x.restore(); setLS(x,0);
+  /* плашки */
+  const pal=[["#fff",NAVY],[ICE,NAVY],[MAG,"#fff"],[GOLD,NAVY],[SILVER,NAVY]], rots=[-3,3,-2,3,-3];
+  L.placed.forEach((it,i)=>{ const [fill,tc]=pal[i%5];
+    x.save(); x.translate(it.x+it.w/2,it.y+L.chipH/2); x.rotate(-rots[i%5]*Math.PI/180); rr(x,-it.w/2,-L.chipH/2,it.w,L.chipH,L.chipH/2); x.fillStyle=fill; x.fill(); x.lineWidth=6; x.strokeStyle=NAVY; x.stroke();
+    x.fillStyle=tc; x.textBaseline="middle"; x.font=ft("Unbounded",600,L.chipFs); x.fillText(it.text,-it.w/2+L.chipFs*.9,2); x.restore(); });
   /* описание вечера */
-  x.fillStyle="#fff"; x.textBaseline="top"; x.font=ft("Onest",600,40); const sub=wrapLines(x,type.sub,900); sub.forEach((l,i)=>x.fillText(l,70,y+i*54)); y+=sub.length*54+36;
+  x.fillStyle="#fff"; x.textBaseline="top"; x.font=ft("Onest",600,40); L.sl.forEach((l,i)=>x.fillText(l,70,L.subY+i*54));
   /* карточка с прогулкой */
-  const meta=[top.format,top.duration].filter(Boolean).join(", ")+" · по расписанию";
-  x.font=ft("Unbounded",900,46); setLS(x,-1); const wl=wrapLines(x,top.title,808); setLS(x,0);
-  const ch=44+32+14+wl.length*52+14+40+44;
-  const cy=Math.min(y, H-ch-250);
-  x.save(); x.translate(80,cy); x.rotate(-2*Math.PI/180);
-  x.shadowColor="rgba(0,0,0,.35)"; x.shadowBlur=50; x.shadowOffsetY=24; rr(x,0,0,920,ch,64); x.fillStyle=NAVY; x.fill(); x.shadowColor="transparent";
+  x.save(); x.translate(80,L.cy); x.rotate(-2*Math.PI/180);
+  x.shadowColor="rgba(0,0,0,.35)"; x.shadowBlur=50; x.shadowOffsetY=24; rr(x,0,0,920,L.ch,64); x.fillStyle=NAVY; x.fill(); x.shadowColor="transparent";
   x.textBaseline="top"; x.fillStyle=GOLD; x.font=ft("Unbounded",600,24); setLS(x,3); x.fillText("ПОДОБРАЛИ",56,44); setLS(x,-1);
-  x.fillStyle="#fff"; x.font=ft("Unbounded",900,46); wl.forEach((l,i)=>x.fillText(l,56,44+32+14+i*52)); setLS(x,0);
-  x.fillStyle="rgba(255,255,255,.8)"; x.font=ft("Onest",400,30); x.fillText(meta,56,44+32+14+wl.length*52+14);
+  x.fillStyle="#fff"; x.font=ft("Unbounded",900,L.cardFs); L.wl.forEach((l,i)=>x.fillText(l,56,44+32+14+i*L.lh)); setLS(x,0);
+  x.fillStyle="rgba(255,255,255,.8)"; x.font=ft("Onest",400,30); L.ml.forEach((l,i)=>x.fillText(l,56,44+32+14+L.wl.length*L.lh+14+i*40));
   x.restore();
   return cv;
 }
 function blobOf(cv){ return new Promise(res=>cv.toBlob(b=>res(b),"image/png")); }
 async function openTicket(){
   show("s-ticket"); $("#s-ticket").scrollTop=0;
-  const cv=await drawTicket(); track("vibe_ticket",{type:vibeType(prefs()).name});
+  const cv=await drawTicket(); track("vibe_ticket",{type:vibeType(prefs(), lastTop[0].it).name});
   const can = !!(navigator.canShare && navigator.share);
   $("#share").hidden = !can;
   return cv;
