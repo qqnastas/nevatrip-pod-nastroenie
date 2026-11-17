@@ -1,7 +1,8 @@
-Активных: 40, пропущено: 10. Теги из: Google-таблица
+Активных: 38, пропущено: 12. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
   нет
 
 В таблице есть, среди активных нет:
-  нет
+  peshie-ekskursii/posledniy-put-aleksandra-ii  (нет ближайшей даты)
+  peshie-ekskursii/ekskursiya-v-zolotuyu-kladovuyu-ermitazha  (нет ближайшей даты)

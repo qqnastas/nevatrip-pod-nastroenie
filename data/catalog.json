@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-17T21:23:53+00:00",
+ "generated": "2026-11-17T21:55:04+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -577,21 +577,6 @@
    "photo": "img/obzornaya-ekskursiya-po-russkomu-muzeyu.jpg"
   },
   {
-   "uri": "peshie-ekskursii/posledniy-put-aleksandra-ii",
-   "title": "Историческая экскурсия «Последний путь Александра II»",
-   "price_from": 2250,
-   "duration": "2 часа 30 минут",
-   "duration_sec": 10798,
-   "img": "https://nevatrip.ru/assets/img/e/day/posledniy-put-aleksandra-ii-1.jpg",
-   "next_time": 1795249800,
-   "tags": [
-    "history",
-    "guide"
-   ],
-   "format": "Пешком",
-   "photo": "img/posledniy-put-aleksandra-ii.jpg"
-  },
-  {
    "uri": "peshie-ekskursii/ekskursiya-v-yusupovskiy-dvorets",
    "title": "Экскурсия «Величие и загадки Юсуповского дворца»",
    "price_from": 3150,
@@ -642,23 +627,6 @@
    ],
    "format": "Пешком",
    "photo": "img/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha.jpg"
-  },
-  {
-   "uri": "peshie-ekskursii/ekskursiya-v-zolotuyu-kladovuyu-ermitazha",
-   "title": "Экскурсия в Золотую кладовую Эрмитажа в мини-группе",
-   "price_from": 2880,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/peshie-ekskursii/shutterstock_109813364-1.jpg",
-   "next_time": 1795170600,
-   "tags": [
-    "museum",
-    "indoor",
-    "history",
-    "short"
-   ],
-   "format": "Пешком",
-   "photo": "img/ekskursiya-v-zolotuyu-kladovuyu-ermitazha.jpg"
   },
   {
    "uri": "peshie-ekskursii/ekskursiya-v-osobnyak-kelha",
