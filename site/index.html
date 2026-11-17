@@ -310,7 +310,7 @@ function bindDrag(el){
   let sx=0, sy=0, on=false, dx=0;
   const yes=el.querySelector(".stamp.yes"), no=el.querySelector(".stamp.no");
   el.addEventListener("pointerdown", e=>{ if(busy) return; on=true; sx=e.clientX; sy=e.clientY; el.classList.add("drag"); el.setPointerCapture(e.pointerId); el.style.transition="none"; });
-  el.addEventListener("pointermove", e=>{ if(!on) return; dx=e.clientX-sx; const dy=(e.clientY-sy)*.4;
+  el.addEventListener("pointermove", e=>{ if(!on) return; dx=e.clientX-sx; const dy=(e.clientY-sy)*.15;
     el.style.transform=`translate(${dx}px,${dy}px) rotate(${dx/18}deg)`;
     yes.style.opacity=Math.max(0,Math.min(1,dx/90)); no.style.opacity=Math.max(0,Math.min(1,-dx/90)); });
   const end=()=>{ if(!on) return; on=false; el.classList.remove("drag");
