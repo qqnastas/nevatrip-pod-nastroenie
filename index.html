@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Под настроение</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* одна визуальная вселенная: зимняя ночь на Неве, огни и лед */
+  --night:#0b1024;
+  --deep:#141b38;
+  --ice:#cfe3ff;
+  --frost:#8ea3cc;
+  --glow:#ffb35c;
+  --coral:#ff5d73;
+  --mint:#5ce0b8;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme: dark;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:var(--night);color:var(--ice);font-family:var(--body);font-size:16px;line-height:1.45;overflow-x:hidden;
+  background-image:radial-gradient(1200px 600px at 50% -10%, #2a2f6b 0%, transparent 60%), radial-gradient(800px 500px at 100% 100%, #2b1430 0%, transparent 60%);}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,a:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+.app{max-width:440px;margin:0 auto;min-height:100%;display:flex;flex-direction:column;padding:16px 16px 24px;gap:14px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{font-family:var(--display);font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--frost)}
+.brand b{color:var(--ice)}
+.proto{font-size:11px;padding:4px 8px;border:1px solid #2c3766;border-radius:99px;color:var(--frost)}
+.screen{display:none;flex:1;flex-direction:column;gap:14px}
+.screen.on{display:flex}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0}
+h1{font-size:30px;line-height:1.08;font-weight:800}
+h2{font-size:22px;line-height:1.15;font-weight:700}
+.muted{color:var(--frost)}
+.season{display:inline-flex;gap:6px;align-items:center;font-size:12px;font-weight:600;color:var(--night);background:var(--ice);border-radius:99px;padding:5px 10px;align-self:flex-start}
+.hero{position:relative;border-radius:28px;overflow:hidden;min-height:300px;background:var(--deep)}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .in{position:relative;padding:24px;display:flex;flex-direction:column;gap:12px;min-height:300px;justify-content:flex-end;background:linear-gradient(transparent 30%, rgba(11,16,36,.85))}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.how div{background:var(--deep);border-radius:16px;padding:12px;font-size:13px;color:var(--frost)}
+.how strong{display:block;font-family:var(--display);font-size:14px;color:var(--ice);margin-bottom:2px}
+.cta{border:0;border-radius:18px;padding:16px 20px;background:var(--glow);color:#1b1206;font-family:var(--display);font-weight:700;font-size:15px}
+.ghost{border:1px solid #2c3766;background:transparent;border-radius:16px;padding:13px 16px;font-weight:600}
+
+/* колода */
+.progress{display:flex;gap:4px}
+.progress i{flex:1;height:4px;border-radius:4px;background:#232c55}
+.progress i.done{background:var(--ice)}
+.deck{position:relative;flex:1;min-height:420px}
+.card{position:absolute;inset:0;border-radius:28px;overflow:hidden;background:var(--deep);touch-action:none;user-select:none;
+  box-shadow:0 20px 60px rgba(0,0,0,.45);will-change:transform;transition:transform .35s ease, opacity .35s ease}
+.card canvas{position:absolute;inset:0;width:100%;height:100%}
+.card .txt{position:absolute;left:0;right:0;bottom:0;padding:22px;background:linear-gradient(transparent, rgba(8,11,28,.92) 55%)}
+.card .kicker{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--frost)}
+.card h2{font-size:25px;margin:6px 0 6px}
+.card p{margin:0;color:#c2cbe6;font-size:15px}
+.card.under{transform:scale(.95) translateY(14px);opacity:.6}
+.card.dragging{transition:none}
+.stamp{position:absolute;top:22px;padding:6px 12px;border:3px solid;border-radius:10px;font-family:var(--display);font-weight:800;font-size:20px;opacity:0;transform:rotate(-12deg)}
+.stamp.yes{left:20px;color:var(--mint);border-color:var(--mint)}
+.stamp.no{right:20px;color:var(--coral);border-color:var(--coral);transform:rotate(12deg)}
+.stamp.super{left:50%;top:auto;bottom:45%;transform:translateX(-50%) rotate(-6deg);color:var(--glow);border-color:var(--glow)}
+.actions{display:flex;justify-content:center;align-items:center;gap:18px}
+.act{width:62px;height:62px;border-radius:50%;border:1px solid #2c3766;background:var(--deep);display:grid;place-items:center;font-size:24px;line-height:1}
+.act.no{color:var(--coral)}
+.act.yes{color:var(--mint);width:72px;height:72px;font-size:28px}
+.act.super{color:var(--glow)}
+.act span{display:block;font-size:10px;font-weight:600;color:var(--frost);margin-top:2px}
+.hint{text-align:center;font-size:12px;color:var(--frost)}
+
+/* результат */
+.match-head{display:flex;flex-direction:column;gap:6px}
+.big{font-family:var(--display);font-weight:800;font-size:40px;line-height:1;background:linear-gradient(90deg,var(--glow),var(--coral));-webkit-background-clip:text;background-clip:text;color:transparent}
+.res{background:var(--deep);border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:10px;border:1px solid #232c55}
+.res.first{border-color:var(--glow);box-shadow:0 0 0 1px var(--glow) inset, 0 12px 40px rgba(255,179,92,.12)}
+.res-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.res h3{font-size:16px;line-height:1.25}
+.pct{flex:none;font-family:var(--display);font-weight:700;font-size:15px;color:var(--night);background:var(--ice);border-radius:99px;padding:5px 10px;font-variant-numeric:tabular-nums}
+.res.first .pct{background:var(--glow)}
+.meta{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;font-weight:600;border-radius:99px;padding:4px 9px;background:#1d2549;color:var(--ice)}
+.why{font-size:14px;color:#c2cbe6;margin:0}
+.res a.buy{align-self:flex-start;text-decoration:none;font-weight:700;color:var(--night);background:var(--ice);border-radius:12px;padding:10px 14px;font-size:14px}
+.res.first a.buy{background:var(--glow)}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row > *{flex:1}
+
+/* билет для сторис */
+.ticket{position:relative;border-radius:22px;background:#f3eee4;color:#14172b;overflow:hidden}
+.ticket .t-main{padding:20px 20px 16px;display:flex;flex-direction:column;gap:10px}
+.t-eyebrow{display:flex;justify-content:space-between;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#59607d}
+.t-type{font-family:var(--display);font-weight:800;font-size:28px;line-height:1.05}
+.t-sub{font-size:14px;color:#3b4160;margin:0}
+.t-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;font-size:12px}
+.t-grid b{display:block;font-size:13px;color:#14172b}
+.t-grid span{color:#6a7090;text-transform:uppercase;letter-spacing:.06em;font-size:10px;font-weight:700}
+.perf{position:relative;height:0;border-top:2px dashed #c9c1b1;margin:0 16px}
+.ticket::before,.ticket::after{content:"";position:absolute;width:26px;height:26px;border-radius:50%;background:var(--night);top:calc(100% - 78px)}
+.ticket::before{left:-13px}.ticket::after{right:-13px}
+.t-stub{height:78px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;gap:12px}
+.barcode{height:40px;flex:1;max-width:190px;background:repeating-linear-gradient(90deg,#14172b 0 2px,transparent 2px 4px,#14172b 4px 5px,transparent 5px 8px,#14172b 8px 11px,transparent 11px 12px)}
+.t-num{font-family:var(--display);font-weight:700;font-size:13px;font-variant-numeric:tabular-nums}
+.small{font-size:12px;color:var(--frost);text-align:center}
+.empty{background:var(--deep);border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.empty a{color:var(--glow);font-weight:700}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(80px);background:var(--ice);color:var(--night);font-weight:700;border-radius:14px;padding:10px 14px;transition:transform .3s ease;font-size:14px;z-index:9}
+.toast.on{transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion: reduce){.card,.toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="top">
+    <div class="brand"><b>Неватрип</b> · под настроение</div>
+    <div class="proto">прототип</div>
+  </div>
+
+  <!-- старт -->
+  <section class="screen on" id="s-start" aria-labelledby="h-start">
+    <div class="hero"><canvas id="hero-cv" aria-hidden="true"></canvas>
+      <div class="in">
+        <span class="season">Зимняя подборка · до 30 января</span>
+        <h1 id="h-start">Не знаешь, куда сходить? Выбери, что хочется, а мы подберем</h1>
+        <p class="muted" style="margin:0">12 карточек, около минуты. В конце три варианта из того, что сейчас в продаже.</p>
+      </div>
+    </div>
+    <div class="how">
+      <div><strong>Вправо</strong>хочу такое</div>
+      <div><strong>Влево</strong>мимо</div>
+      <div><strong>Вверх</strong>обязательно</div>
+    </div>
+    <button class="cta" id="go">Начать</button>
+    <p class="small">Если уже знаешь дату и бюджет, удобнее фильтр в каталоге.</p>
+  </section>
+
+  <!-- свайпы -->
+  <section class="screen" id="s-swipe" aria-label="Карточки">
+    <div class="progress" id="progress"></div>
+    <div class="deck" id="deck"></div>
+    <div class="actions">
+      <button class="act no" id="b-no" aria-label="Мимо">✕<span>мимо</span></button>
+      <button class="act yes" id="b-yes" aria-label="Хочу">♥<span>хочу</span></button>
+      <button class="act super" id="b-super" aria-label="Обязательно">★<span>обязательно</span></button>
+    </div>
+    <p class="hint">Свайпай или жми стрелки на клавиатуре</p>
+  </section>
+
+  <!-- мэтч -->
+  <section class="screen" id="s-result" aria-labelledby="h-res">
+    <div class="match-head">
+      <span class="big">Подобрали</span>
+      <h2 id="h-res">Вот что тебе подойдет</h2>
+    </div>
+    <div id="results" style="display:flex;flex-direction:column;gap:12px"></div>
+    <div class="row">
+      <button class="cta" id="to-ticket">Билет для сторис</button>
+    </div>
+    <div class="row">
+      <button class="ghost" id="again">Пройти еще раз</button>
+    </div>
+  </section>
+
+  <!-- билет -->
+  <section class="screen" id="s-ticket" aria-labelledby="h-ticket">
+    <h2 id="h-ticket">Твой билет</h2>
+    <div class="ticket" id="ticket"></div>
+    <p class="small">Сделай скриншот для сторис. В рабочей версии здесь будет кнопка «Поделиться».</p>
+    <div class="row">
+      <button class="ghost" id="back-res">Назад к прогулкам</button>
+    </div>
+  </section>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ---------- карточки-вайбы (зимняя колода) ---------- */
+const VIBES = [
+  {id:"lights", kicker:"вечер", title:"Огни ночного города", text:"Подсветка, отражения в воде, город после заката.", tags:{night:2, lights:2}, pal:["#1a1f4d","#ffb35c","#ff7a59","#7aa7ff"], motif:"bokeh"},
+  {id:"ny", kicker:"праздник", title:"Новогодние огни", text:"Елки, гирлянды и праздничный центр.", tags:{newyear:2, festive:1, lights:1}, pal:["#14301f","#ff5d73","#ffd36b","#5ce0b8"], motif:"bokeh"},
+  {id:"dinner", kicker:"еда", title:"Ужин с видом", text:"Тарелка, бокал и Нева за окном.", tags:{food:2, romantic:1, water:1}, pal:["#2a1430","#ffb35c","#ff5d73","#ffe2b8"], motif:"waves"},
+  {id:"cozy", kicker:"темп", title:"Тепло и без спешки", text:"Теплый салон, плед, никуда не торопиться.", tags:{cozy:2, music:1}, pal:["#2b1d14","#ffb35c","#ffd9a8","#c96f3b"], motif:"snow"},
+  {id:"guide", kicker:"смысл", title:"Хороший рассказчик", text:"Важны истории, а не только виды.", tags:{guide:2, history:1}, pal:["#0f2238","#cfe3ff","#5ca8ff","#8ea3cc"], motif:"lines"},
+  {id:"palace", kicker:"красота", title:"Дворцы и интерьеры", text:"Позолота, лестницы, бальные залы.", tags:{palace:2, museum:1, indoor:1}, pal:["#2a2210","#ffd36b","#fff1c2","#b8862f"], motif:"stars"},
+  {id:"mystic", kicker:"тайны", title:"Легенды и тайны", text:"Петербург, которого нет в путеводителях.", tags:{mystic:2, history:1}, pal:["#120d24","#9b7bff","#5ce0b8","#3b2a7a"], motif:"stars"},
+  {id:"drive", kicker:"скорость", title:"Лед и ветер с залива", text:"Воздушная подушка, аэролодка, замерзшая Нева.", tags:{drive:2, water:1}, pal:["#0b2a3a","#cfe3ff","#5ce0f0","#ffffff"], motif:"lines"},
+  {id:"craft", kicker:"руками", title:"Мастер-класс", text:"Сделать что-то самому и забрать с собой.", tags:{masterclass:2}, pal:["#2a1420","#ff5d73","#ffd36b","#ffb3c1"], motif:"snow"},
+  {id:"trip", kicker:"выезд", title:"Уехать на целый день", text:"Пригород, другой город, другой воздух.", tags:{trip:2}, pal:["#10261d","#5ce0b8","#cfe3ff","#2f7a5c"], motif:"snow"},
+  {id:"kids", kicker:"компания", title:"С детьми", text:"Чтобы им было интересно, а тебе не утомительно.", tags:{kids:2}, pal:["#22184a","#ffd36b","#5ce0b8","#ff7a59"], motif:"bokeh"},
+  {id:"short", kicker:"время", title:"Пара свободных часов", text:"Коротко, в центре, без выездов.", tags:{short:2, trip:-1}, pal:["#1a1f3a","#cfe3ff","#ffb35c","#5ca8ff"], motif:"lines"}
+];
+
+/* как тег называется в строке «Совпало» */
+const TAG_WORDS = {night:"ночной город", lights:"огни города", newyear:"Новый год", festive:"праздник", food:"ужин с видом", romantic:"вечер вдвоем", water:"вода", cozy:"тепло и без спешки", music:"живая музыка", guide:"хороший рассказчик", history:"история", palace:"дворцы", museum:"музеи", indoor:"интерьеры", mystic:"легенды и тайны", drive:"скорость", masterclass:"мастер-класс", trip:"выезд за город", kids:"с детьми", short:"коротко"};
+
+/* ---------- каталог: реальные позиции с nevatrip.ru, теги расставлены для прототипа ---------- */
+const BASE = "https://nevatrip.ru";
+const ITEMS = [
+  {t:"Рождественский ужин-круиз по Неве", u:"/day/rozhdestvenskiy-uzhin-kruiz-po-neve", p:2000, d:"1,5 часа", c:"Теплоход", tags:["food","newyear","lights","water","cozy","romantic","night"]},
+  {t:"Ужин-круиз при свечах на теплоходе-ресторане «Шустрый Бобер»", u:"/day/uzhin-kruiz-pri-svechah", p:2300, d:"2 часа", c:"Теплоход", tags:["food","romantic","water","cozy","music","night"]},
+  {t:"Новогодняя экскурсия по Неве", u:"/day/progulka-s-ekskursiey-na-teplohode-zimoy", p:1800, d:"1 час", c:"Теплоход", tags:["newyear","water","kids","cozy","short","guide"]},
+  {t:"«Зимний Петербург с воды» на катере на воздушной подушке", u:"/day/zimniy-peterburg-s-vody", p:2490, d:"40–60 минут", c:"Катер", tags:["drive","water","short"]},
+  {t:"«Ледяной драйв» на воздушной подушке по Неве", u:"/day/ledyanoy-drayv-po-neve-na-svp", p:2500, d:"65 минут", c:"Катер", tags:["drive","water","short"]},
+  {t:"На аэролодке от форта Риф до Толбухина маяка", u:"/day/progulka-na-katere-ot-forta-rif-do-tolbuhina-mayaka", p:3500, d:"1,5–2 часа", c:"Катер", tags:["drive","water","trip"]},
+  {t:"Волшебная встреча Нового года 2027", u:"/day/ehkskursiya-v-novogodnyuyu-noch", p:6000, d:"6 часов", c:"Новый год", tags:["newyear","festive","night","lights"]},
+  {t:"Автобусный тур под Новый год с фуршетом", u:"/day/avtobusnaya-ekskursiya-pod-novyj-god", p:6000, d:"5–5,5 часа", c:"Новый год", tags:["newyear","festive","food","kids","lights"]},
+  {t:"«Новогодняя сказка Петербурга»", u:"/avtobusnye-ehkskursii/novogodnyaya-ehkskursiya-v-zimnie-kanikuly", p:1490, d:"2–2,5 часа", c:"Автобус", tags:["newyear","lights","guide","kids","short"]},
+  {t:"«Рождественские истории Петербурга» с мастер-классом", u:"/avtobusnye-ehkskursii/rozhdestvenskie-istorii", p:3650, d:"3,5–4 часа", c:"Автобус", tags:["masterclass","newyear","kids","guide"]},
+  {t:"Фабрика елочных игрушек в Крестцах", u:"/avtobusnye-ehkskursii/elochnyie-igrushki", p:5950, d:"13 часов", c:"Выезд", tags:["masterclass","trip","newyear","kids","festive"]},
+  {t:"«Рождественский Выборг»", u:"/avtobusnye-ehkskursii/rozhdestvenskij-vyborg", p:4850, d:"11 часов", c:"Выезд", tags:["trip","masterclass","newyear","history"]},
+  {t:"«Новогодний Кронштадт»", u:"/avtobusnye-ehkskursii/novogodnij-kronshtadt", p:2290, d:"5–5,5 часа", c:"Выезд", tags:["trip","newyear","lights","history"]},
+  {t:"«Ожидание Рождества» с концертом органной музыки", u:"/avtobusnye-ehkskursii/ozhidanie-rozhdestva", p:2890, d:"3,5 часа", c:"Автобус", tags:["music","newyear","cozy","history","guide"]},
+  {t:"Католическое Рождество в Петербурге, рейс 24 декабря", u:"/day/katolicheskoe-rozhdestvo-v-peterburge", p:1890, d:"3 часа", c:"Автобус", tags:["newyear","history","guide","lights"]},
+  {t:"«Ночь перед Рождеством»", u:"/day/noch-pered-rozhdestvom", p:1990, d:"5 часов", c:"Автобус", tags:["newyear","history","guide","night","mystic"]},
+  {t:"Автобусная экскурсия по вечернему Петербургу", u:"/avtobusnye-ehkskursii/avtobusnaya-ekskursiya-po-vechernemu-peterburgu", p:750, d:"2,5–3 часа", c:"Автобус", tags:["night","lights","guide","short"]},
+  {t:"«Мистический Петербург — мифы и легенды»", u:"/avtobusnye-ehkskursii/misticheskij-peterburg-ekskursiya", p:790, d:"3 часа", c:"Автобус", tags:["mystic","guide","history"]},
+  {t:"Обзорная автобусная экскурсия по центру", u:"/avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg", p:790, d:"2,5 часа", c:"Автобус", tags:["guide","history","short"]},
+  {t:"«Первое свидание с Петербургом»", u:"/day/obzornaya-ekskursiya-po-peterburgu", p:590, d:"1,5 часа", c:"Автобус", tags:["guide","short","romantic"]},
+  {t:"На двухэтажном автобусе, билет на 24 или 48 часов", u:"/day/ekskursii-po-spb-na-avtobuse", p:2500, d:"24 или 48 часов", c:"Автобус", tags:["kids","guide"]},
+  {t:"«Дворцы Петербургской знати»", u:"/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh", p:2590, d:"3,5–4 часа", c:"Автобус", tags:["palace","history","guide"]},
+  {t:"Петергоф: Большой дворец и парк", u:"/avtobusnye-ehkskursii/ekskursiya-v-petergof", p:4750, d:"6,5–7 часов", c:"Выезд", tags:["palace","trip","museum"]},
+  {t:"Павловск: резиденция Павла I", u:"/avtobusnye-ehkskursii/ehkskursiya-v-pavlovsk", p:3290, d:"5,5–6 часов", c:"Выезд", tags:["palace","trip","cozy"]},
+  {t:"Выборг и парк Монрепо на один день", u:"/avtobusnye-ehkskursii/peterburg-ekskursii-vyborg", p:3390, d:"11 часов", c:"Выезд", tags:["trip","history"]},
+  {t:"Великий Новгород на один день", u:"/avtobusnye-ehkskursii/ehkskursiya-v-velikij-novgorod", p:4190, d:"12–13 часов", c:"Выезд", tags:["trip","history","guide"]},
+  {t:"Экскурсия в Кунсткамеру", u:"/peshie-ekskursii/ekskursiya-v-kunstkameru", p:1550, d:"1 час", c:"Музей", tags:["museum","mystic","kids","short","indoor"]},
+  {t:"«Величие и загадки Юсуповского дворца»", u:"/peshie-ekskursii/ekskursiya-v-yusupovskiy-dvorets", p:3150, d:"2 часа", c:"Музей", tags:["palace","mystic","history","indoor"]},
+  {t:"Бриллиантовая кладовая Эрмитажа", u:"/peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha", p:3750, d:"1,5 часа", c:"Музей", tags:["palace","museum","indoor","short"]},
+  {t:"Особняк Кельха", u:"/peshie-ekskursii/ekskursiya-v-osobnyak-kelha", p:3500, d:"1,5 часа", c:"Музей", tags:["palace","indoor","short","mystic"]},
+  {t:"Крейсер «Аврора» без очереди", u:"/peshie-ekskursii/ekskursiya-na-kreyser-avrora", p:1980, d:"1 час", c:"Музей", tags:["kids","history","short","guide"]},
+  {t:"«Последний путь Александра II»", u:"/peshie-ekskursii/posledniy-put-aleksandra-ii", p:2250, d:"2,5 часа", c:"Пешком", tags:["history","guide","mystic"]},
+  {t:"Билеты в Эрмитаж без очереди", u:"/day/ermitazh", p:500, d:"сколько захочешь", c:"Музей", tags:["museum","palace","indoor"]}
+];
+
+/* архетипы для билета */
+/* билет называет не человека, а вечер */
+const TYPES = [
+  {tags:["night","lights","romantic","food"], name:"Вечер на воде", sub:"Огни города, ужин и Нева за окном."},
+  {tags:["newyear","festive"], name:"Новогодний Петербург", sub:"Гирлянды, елки и центр в праздничной подсветке."},
+  {tags:["mystic"], name:"Петербург с легендами", sub:"Истории, которые не пишут на табличках."},
+  {tags:["guide","history"], name:"Город с рассказчиком", sub:"За каждым фасадом своя история."},
+  {tags:["palace","museum","indoor"], name:"Дворцы и интерьеры", sub:"Позолота, мрамор и парадные лестницы."},
+  {tags:["drive","water"], name:"Зимний драйв", sub:"Лед, скорость и ветер с залива."},
+  {tags:["trip"], name:"День за городом", sub:"Пригород и другой воздух."},
+  {tags:["kids"], name:"Всей семьей", sub:"Интересно детям, спокойно взрослым."},
+  {tags:["masterclass"], name:"Своими руками", sub:"Сувенир, который сделаешь сам."},
+  {tags:["cozy","music"], name:"Тепло и без спешки", sub:"Теплый салон, музыка, никуда не надо."},
+  {tags:["short"], name:"Пара часов в центре", sub:"Коротко, близко, без долгих выездов."}
+];
+
+/* ---------- аналитика: в боевой версии здесь ym(ID,'reachGoal',...) ---------- */
+function track(goal, params){ try{ console.log("[goal]", goal, params||""); }catch(e){} }
+
+/* ---------- генеративная графика карточек ---------- */
+function rnd(seed){ let s = seed; return () => (s = (s*16807) % 2147483647) / 2147483647; }
+function hash(str){ let h = 7; for (const ch of str) h = (h*31 + ch.charCodeAt(0)) % 2147483647; return h || 1; }
+function paint(cv, pal, motif, seedStr){
+  const r = cv.getBoundingClientRect(); const dpr = Math.min(window.devicePixelRatio||1, 2);
+  cv.width = Math.max(1, r.width*dpr); cv.height = Math.max(1, r.height*dpr);
+  const x = cv.getContext("2d"); x.scale(dpr,dpr); const W = r.width, H = r.height; const R = rnd(hash(seedStr));
+  const g = x.createLinearGradient(0,0,W,H); g.addColorStop(0,pal[0]); g.addColorStop(1,"#070a1a");
+  x.fillStyle = g; x.fillRect(0,0,W,H);
+  const glow = x.createRadialGradient(W*.7,H*.25,0,W*.7,H*.25,W*.9); glow.addColorStop(0,pal[1]+"55"); glow.addColorStop(1,"transparent");
+  x.fillStyle = glow; x.fillRect(0,0,W,H);
+  if (motif === "bokeh"){
+    for (let i=0;i<34;i++){ const cx=R()*W, cy=R()*H*.75, rad=6+R()*34, c=pal[1+Math.floor(R()*3)];
+      const b=x.createRadialGradient(cx,cy,0,cx,cy,rad); b.addColorStop(0,c+"cc"); b.addColorStop(.6,c+"33"); b.addColorStop(1,"transparent");
+      x.fillStyle=b; x.beginPath(); x.arc(cx,cy,rad,0,Math.PI*2); x.fill(); }
+  } else if (motif === "snow"){
+    for (let i=0;i<140;i++){ const cx=R()*W, cy=R()*H, rad=.6+R()*2.4; x.fillStyle=`rgba(255,255,255,${.25+R()*.6})`; x.beginPath(); x.arc(cx,cy,rad,0,Math.PI*2); x.fill(); }
+    for (let i=0;i<6;i++){ const cx=R()*W, cy=H*.2+R()*H*.4, rad=30+R()*50; const b=x.createRadialGradient(cx,cy,0,cx,cy,rad); b.addColorStop(0,pal[1]+"66"); b.addColorStop(1,"transparent"); x.fillStyle=b; x.fillRect(cx-rad,cy-rad,rad*2,rad*2); }
+  } else if (motif === "stars"){
+    for (let i=0;i<90;i++){ const cx=R()*W, cy=R()*H*.8, s=R(); x.fillStyle = s>.85 ? pal[1] : `rgba(255,255,255,${.3+s*.6})`; x.fillRect(cx,cy,s>.9?2.4:1.3,s>.9?2.4:1.3); }
+    x.strokeStyle = pal[1]+"88"; x.lineWidth = 1.2; x.beginPath();
+    for (let i=0;i<5;i++){ const ax=R()*W, ay=R()*H*.6; i?x.lineTo(ax,ay):x.moveTo(ax,ay); } x.stroke();
+  } else if (motif === "lines"){
+    x.lineWidth = 2; for (let i=0;i<16;i++){ const y0=R()*H, len=W*(.3+R()*.7), sx=R()*W*.6; x.strokeStyle = (i%3? "rgba(207,227,255,.35)" : pal[2]+"aa");
+      x.beginPath(); x.moveTo(sx,y0); x.lineTo(sx+len, y0-len*.18); x.stroke(); }
+  } else if (motif === "waves"){
+    for (let i=0;i<9;i++){ const y=H*.45+i*18; x.strokeStyle = i%2? pal[1]+"88" : pal[2]+"55"; x.lineWidth=2; x.beginPath();
+      for (let px=0; px<=W; px+=8){ const py = y + Math.sin(px/26 + i)*5; px? x.lineTo(px,py) : x.moveTo(px,py); } x.stroke(); }
+    for (let i=0;i<20;i++){ const cx=R()*W, cy=R()*H*.4, rad=3+R()*12; x.fillStyle=pal[1]+"88"; x.beginPath(); x.arc(cx,cy,rad,0,Math.PI*2); x.fill(); }
+  }
+  const grain = x.getImageData(0,0,cv.width,cv.height); /* легкое зерно */
+  for (let i=0;i<grain.data.length;i+=16){ const n=(R()-.5)*18; grain.data[i]+=n; grain.data[i+1]+=n; grain.data[i+2]+=n; }
+  x.setTransform(1,0,0,1,0,0); x.putImageData(grain,0,0);
+}
+
+/* ---------- состояние ---------- */
+let idx = 0, answers = {};
+const $ = s => document.querySelector(s);
+function show(id){ document.querySelectorAll(".screen").forEach(s=>s.classList.toggle("on", s.id===id)); window.scrollTo(0,0); }
+
+function renderProgress(){
+  $("#progress").innerHTML = VIBES.map((_,i)=>`<i class="${i<idx?'done':''}"></i>`).join("");
+}
+function cardEl(v, under){
+  const el = document.createElement("article"); el.className = "card" + (under?" under":"");
+  el.innerHTML = `<canvas aria-hidden="true"></canvas>
+    <div class="stamp yes">ХОЧУ</div><div class="stamp no">МИМО</div><div class="stamp super">ОБЯЗАТЕЛЬНО</div>
+    <div class="txt"><div class="kicker">${v.kicker}</div><h2>${v.title}</h2><p>${v.text}</p></div>`;
+  return el;
+}
+function renderDeck(){
+  const deck = $("#deck"); deck.innerHTML = ""; renderProgress();
+  if (idx >= VIBES.length) return finish();
+  const next = VIBES[idx+1], cur = VIBES[idx];
+  if (next){ const n = cardEl(next, true); deck.appendChild(n); requestAnimationFrame(()=>paint(n.querySelector("canvas"), next.pal, next.motif, next.id)); }
+  const c = cardEl(cur, false); deck.appendChild(c);
+  requestAnimationFrame(()=>paint(c.querySelector("canvas"), cur.pal, cur.motif, cur.id));
+  bindDrag(c);
+}
+function decide(val){
+  const deck = $("#deck"); const top = deck.lastElementChild; if (!top || idx>=VIBES.length) return;
+  answers[VIBES[idx].id] = val;
+  track("vibe_swipe", {card:VIBES[idx].id, value:val});
+  const dx = val===-1 ? -600 : val===2 ? 0 : 600, dy = val===2 ? -700 : 40;
+  top.style.transform = `translate(${dx}px,${dy}px) rotate(${dx/20}deg)`; top.style.opacity = "0";
+  const st = top.querySelector(val===-1?".stamp.no":val===2?".stamp.super":".stamp.yes"); if (st) st.style.opacity = 1;
+  idx++; setTimeout(renderDeck, 260);
+}
+function bindDrag(el){
+  let sx=0, sy=0, dx=0, dy=0, on=false;
+  el.addEventListener("pointerdown", e=>{ on=true; sx=e.clientX; sy=e.clientY; el.classList.add("dragging"); el.setPointerCapture(e.pointerId); });
+  el.addEventListener("pointermove", e=>{ if(!on) return; dx=e.clientX-sx; dy=e.clientY-sy;
+    el.style.transform = `translate(${dx}px,${dy}px) rotate(${dx/18}deg)`;
+    el.querySelector(".stamp.yes").style.opacity = Math.max(0, Math.min(1, dx/90));
+    el.querySelector(".stamp.no").style.opacity = Math.max(0, Math.min(1, -dx/90));
+    el.querySelector(".stamp.super").style.opacity = Math.abs(dx)<60 ? Math.max(0, Math.min(1, -dy/110)) : 0; });
+  const end = ()=>{ if(!on) return; on=false; el.classList.remove("dragging");
+    if (dy < -110 && Math.abs(dx) < 80) decide(2); else if (dx > 100) decide(1); else if (dx < -100) decide(-1);
+    else { el.style.transform=""; el.querySelectorAll(".stamp").forEach(s=>s.style.opacity=0); } dx=dy=0; };
+  el.addEventListener("pointerup", end); el.addEventListener("pointercancel", end);
+}
+
+/* ---------- подсчет мэтча ---------- */
+function prefs(){
+  const p = {};
+  for (const v of VIBES){ const a = answers[v.id]; if (a===undefined) continue;
+    for (const [t,w] of Object.entries(v.tags)) p[t] = (p[t]||0) + w*a; }
+  return p;
+}
+function score(item, p){
+  let dot = 0; for (const t of item.tags) dot += (p[t]||0);
+  const pn = Math.sqrt(Object.values(p).reduce((s,x)=>s+x*x,0)) || 1;
+  return dot / (pn * Math.sqrt(item.tags.length)); /* косинусная близость */
+}
+function why(item, p){
+  const liked = item.tags.filter(t => (p[t]||0) > 0).sort((a,b)=>p[b]-p[a]).slice(0,2).map(t=>TAG_WORDS[t]);
+  if (!liked.length) return "Ближе всего к твоим ответам из того, что сейчас в продаже.";
+  return "Совпало: " + liked.join(", ");
+}
+function vibeType(p){
+  let best = TYPES[0], bs = -1e9;
+  for (const ty of TYPES){ const s = ty.tags.reduce((a,t)=>a+(p[t]||0),0)/Math.sqrt(ty.tags.length); if (s>bs){bs=s;best=ty;} }
+  return bs > 0 ? best : null;
+}
+const rub = n => n.toLocaleString("ru-RU") + " ₽";
+let lastTop = [], lastP = {};
+
+function finish(){
+  const p = prefs(); lastP = p;
+  const anyYes = Object.values(answers).some(a=>a>0);
+  const ranked = ITEMS.map(it => ({it, s:score(it,p)})).sort((a,b)=>b.s-a.s);
+  lastTop = ranked.slice(0,3);
+  const box = $("#results");
+  if (!anyYes){
+    $("#h-res").textContent = "Ничего не подошло";
+    box.innerHTML = `<div class="empty"><p style="margin:0">Можно пройти еще раз или открыть весь каталог с фильтром.</p>
+      <a href="${BASE}/" target="_blank" rel="noopener">Открыть каталог</a></div>`;
+    $("#to-ticket").style.display = "none";
+    track("vibe_no_match"); show("s-result"); return;
+  }
+  $("#to-ticket").style.display = "";
+  $("#h-res").textContent = "Вот что сейчас подходит больше всего";
+  box.innerHTML = lastTop.map(({it,s},i)=>{
+    const pct = Math.max(41, Math.min(98, Math.round(55 + 43*s)));
+    return `<div class="res ${i===0?'first':''}">
+      <div class="res-top"><h3>${it.t}</h3><span class="pct">${pct}%</span></div>
+      <div class="meta"><span class="chip">${it.c}</span><span class="chip">${it.d}</span><span class="chip">от ${rub(it.p)}</span></div>
+      <p class="why">${why(it,p)}</p>
+      <a class="buy" href="${BASE+it.u}" target="_blank" rel="noopener" data-rank="${i+1}">Смотреть и купить</a>
+    </div>`; }).join("");
+  box.querySelectorAll("a.buy").forEach(a=>a.addEventListener("click",()=>track("vibe_click_item",{rank:a.dataset.rank, url:a.href})));
+  track("vibe_result", {top:lastTop.map(x=>x.it.u)});
+  show("s-result");
+}
+
+function renderTicket(){
+  const ty = vibeType(lastP) || TYPES[0];
+  const liked = VIBES.filter(v => answers[v.id] > 0).sort((a,b)=>answers[b.id]-answers[a.id]).slice(0,3).map(v=>v.title);
+  const top = lastTop[0].it;
+  const d = new Date(); const date = d.toLocaleDateString("ru-RU",{day:"numeric", month:"long"});
+  const num = String(Math.abs(hash(Object.entries(answers).join("|"))) % 900000 + 100000);
+  $("#ticket").innerHTML = `<div class="t-main">
+      <div class="t-eyebrow"><span>Неватрип · зима 2026</span><span>${date}</span></div>
+      <div class="t-type">${ty.name}</div>
+      <p class="t-sub">${ty.sub}</p>
+      <div class="t-grid">
+        <div><span>Выбрано</span><b>${liked.join(", ")}</b></div>
+        <div><span>Подобрали</span><b>${top.t}</b></div>
+        <div><span>Формат</span><b>${top.c}, ${top.d}</b></div>
+        <div><span>Отправление</span><b>по расписанию</b></div>
+      </div>
+    </div>
+    <div class="perf"></div>
+    <div class="t-stub"><div class="barcode" aria-hidden="true"></div><div class="t-num">№ ${num}</div></div>`;
+  track("vibe_ticket", {type:ty.name});
+}
+
+/* ---------- кнопки ---------- */
+$("#go").addEventListener("click", ()=>{ idx=0; answers={}; track("vibe_start"); show("s-swipe"); renderDeck(); });
+$("#b-no").addEventListener("click", ()=>decide(-1));
+$("#b-yes").addEventListener("click", ()=>decide(1));
+$("#b-super").addEventListener("click", ()=>decide(2));
+$("#again").addEventListener("click", ()=>{ idx=0; answers={}; track("vibe_restart"); show("s-swipe"); renderDeck(); });
+$("#to-ticket").addEventListener("click", ()=>{ renderTicket(); show("s-ticket"); });
+$("#back-res").addEventListener("click", ()=>show("s-result"));
+document.addEventListener("keydown", e=>{
+  if (!$("#s-swipe").classList.contains("on")) return;
+  if (e.key==="ArrowLeft") decide(-1); else if (e.key==="ArrowRight") decide(1); else if (e.key==="ArrowUp") { e.preventDefault(); decide(2); }
+});
+window.addEventListener("load", ()=>paint($("#hero-cv"), ["#1a1f4d","#ffb35c","#ff5d73","#7aa7ff"], "bokeh", "hero"));
+</script>
+</body>
+</html>

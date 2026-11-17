@@ -1,0 +1,283 @@
+{
+ "day/rozhdestvenskiy-uzhin-kruiz-po-neve": [
+  "food",
+  "newyear",
+  "lights",
+  "water",
+  "cozy",
+  "music",
+  "night",
+  "short"
+ ],
+ "day/uzhin-kruiz-pri-svechah": [
+  "food",
+  "romantic",
+  "water",
+  "cozy",
+  "music",
+  "night"
+ ],
+ "day/progulka-s-ekskursiey-na-teplohode-zimoy": [
+  "newyear",
+  "water",
+  "kids",
+  "cozy",
+  "short"
+ ],
+ "day/zimniy-peterburg-s-vody": [
+  "drive",
+  "water",
+  "short"
+ ],
+ "day/ledyanoy-drayv-po-neve-na-svp": [
+  "drive",
+  "water",
+  "short"
+ ],
+ "day/progulka-na-katere-ot-forta-rif-do-tolbuhina-mayaka": [
+  "drive",
+  "water",
+  "trip"
+ ],
+ "day/ehkskursiya-v-novogodnyuyu-noch": [
+  "newyear",
+  "festive",
+  "night",
+  "lights",
+  "music"
+ ],
+ "day/avtobusnaya-ekskursiya-pod-novyj-god": [
+  "newyear",
+  "festive",
+  "food",
+  "kids",
+  "lights"
+ ],
+ "avtobusnye-ehkskursii/novogodnyaya-ehkskursiya-v-zimnie-kanikuly": [
+  "newyear",
+  "lights",
+  "short",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/rozhdestvenskie-istorii": [
+  "masterclass",
+  "newyear",
+  "lights",
+  "guide",
+  "festive"
+ ],
+ "avtobusnye-ehkskursii/elochnyie-igrushki": [
+  "masterclass",
+  "trip",
+  "newyear",
+  "food",
+  "kids",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/rozhdestvenskij-vyborg": [
+  "trip",
+  "newyear",
+  "food",
+  "masterclass",
+  "guide",
+  "history"
+ ],
+ "avtobusnye-ehkskursii/novogodnij-kronshtadt": [
+  "trip",
+  "newyear",
+  "lights",
+  "night",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/ozhidanie-rozhdestva": [
+  "music",
+  "newyear",
+  "lights",
+  "guide",
+  "history"
+ ],
+ "day/katolicheskoe-rozhdestvo-v-peterburge": [
+  "newyear",
+  "festive",
+  "history",
+  "guide"
+ ],
+ "day/noch-pered-rozhdestvom": [
+  "newyear",
+  "history",
+  "guide",
+  "night",
+  "mystic"
+ ],
+ "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-po-vechernemu-peterburgu": [
+  "night",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/misticheskij-peterburg-ekskursiya": [
+  "mystic",
+  "night",
+  "guide",
+  "history"
+ ],
+ "avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg": [
+  "guide",
+  "history",
+  "cozy"
+ ],
+ "day/obzornaya-ekskursiya-po-peterburgu": [
+  "guide",
+  "short"
+ ],
+ "day/ekskursii-po-spb-na-avtobuse": [
+  "kids",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh": [
+  "palace",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/ekskursiya-v-petergof": [
+  "palace",
+  "trip",
+  "history",
+  "guide",
+  "museum"
+ ],
+ "avtobusnye-ehkskursii/ehkskursiya-v-pavlovsk": [
+  "palace",
+  "trip",
+  "cozy",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/peterburg-ekskursii-vyborg": [
+  "trip",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/ehkskursiya-v-velikij-novgorod": [
+  "trip",
+  "history",
+  "guide"
+ ],
+ "peshie-ekskursii/ekskursiya-v-kunstkameru": [
+  "museum",
+  "indoor",
+  "short",
+  "history",
+  "guide"
+ ],
+ "peshie-ekskursii/ekskursiya-v-yusupovskiy-dvorets": [
+  "palace",
+  "indoor",
+  "history",
+  "mystic",
+  "short"
+ ],
+ "peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha": [
+  "museum",
+  "indoor",
+  "guide",
+  "short"
+ ],
+ "peshie-ekskursii/ekskursiya-v-osobnyak-kelha": [
+  "indoor",
+  "history",
+  "short"
+ ],
+ "peshie-ekskursii/ekskursiya-na-kreyser-avrora": [
+  "museum",
+  "history",
+  "guide",
+  "short"
+ ],
+ "peshie-ekskursii/posledniy-put-aleksandra-ii": [
+  "history",
+  "guide"
+ ],
+ "day/ermitazh": [
+  "museum",
+  "palace",
+  "indoor"
+ ],
+ "avtobusnye-ehkskursii/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov": [
+  "trip",
+  "history"
+ ],
+ "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-v-pushkin": [
+  "palace",
+  "trip",
+  "history"
+ ],
+ "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-strelnu": [
+  "palace",
+  "trip",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/ehkskursiya-v-lomonosov": [
+  "palace",
+  "trip",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/ehkskursiya-v-gatchinu": [
+  "palace",
+  "trip",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu": [
+  "trip",
+  "history",
+  "guide",
+  "food"
+ ],
+ "avtobusnye-ehkskursii/avtobusnayia-ekskursiya-v-pushkin-pavlovsk": [
+  "palace",
+  "trip",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu": [
+  "guide",
+  "short"
+ ],
+ "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi": [
+  "guide",
+  "museum",
+  "palace",
+  "indoor"
+ ],
+ "avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti": [
+  "guide",
+  "history"
+ ],
+ "avtobusnye-ehkskursii/kareliya-ekskursii": [
+  "trip",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada": [
+  "trip",
+  "history",
+  "guide"
+ ],
+ "avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya": [
+  "palace",
+  "trip",
+  "history",
+  "guide"
+ ],
+ "muzei/obzornaya-ekskursiya-po-russkomu-muzeyu": [
+  "museum",
+  "indoor",
+  "guide",
+  "short"
+ ],
+ "peshie-ekskursii/ekskursiya-v-zolotuyu-kladovuyu-ermitazha": [
+  "museum",
+  "indoor",
+  "history",
+  "short"
+ ]
+}
