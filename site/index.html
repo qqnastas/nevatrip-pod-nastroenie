@@ -48,8 +48,8 @@ h1,h2,h3,p{margin:0}
 .q{position:absolute;left:30%;top:62px;font-family:var(--display);font-weight:900;font-size:min(62vw,270px);line-height:.85;transform:rotate(-6deg);z-index:1}
 #season{position:absolute;left:30px;top:min(36vh,300px);transform:rotate(-4deg);z-index:2}
 .start-body{margin-top:auto;display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
-.start-body h1{font-family:var(--display);font-weight:900;font-size:min(7vw,27px);line-height:1.12;letter-spacing:-.5px}
-.start-body p{font-size:15px;line-height:21px}
+.start-body h1{color:#fff;font-family:var(--display);font-weight:900;font-size:min(7vw,27px);line-height:1.12;letter-spacing:-.5px}
+.start-body p{color:#fff;font-size:15px;line-height:21px}
 .gest{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
 .gest .sticker:nth-child(1){transform:rotate(-3deg);font-size:13px}
 .gest .sticker:nth-child(2){transform:rotate(3deg);background:var(--ice);font-size:13px}
@@ -81,7 +81,7 @@ h1,h2,h3,p{margin:0}
 .stamp.no{right:20px;background:#fff;color:var(--navy);transform:rotate(-10deg)}
 .actions{display:flex;gap:14px;position:relative;z-index:2}
 .actions .btn{flex:1}
-.hint{text-align:center;font-size:12px;line-height:16px;margin-top:12px;position:relative;z-index:2}
+.hint{color:#fff;text-align:center;font-size:12px;line-height:16px;margin-top:12px;position:relative;z-index:2}
 
 /* результат (черновик) и пустой экран */
 #s-result{overflow-y:auto;padding:0;background:var(--ice)}
@@ -112,7 +112,8 @@ h1,h2,h3,p{margin:0}
 .res-actions{display:flex;flex-direction:column;gap:14px;margin-top:6px}
 #s-empty{justify-content:flex-end;gap:14px;padding-bottom:28px}
 #s-empty svg.moon{position:absolute;left:12%;top:70px;width:70%;height:auto;overflow:visible}
-#s-empty p{font-size:16px;line-height:22px}
+#s-empty p{color:#fff;font-size:16px;line-height:22px}
+#s-empty h1{color:#fff}
 .snow{position:absolute;inset:0;pointer-events:none}
 .snow b{position:absolute;width:5px;height:5px;border-radius:50%;background:#fff}
 #s-empty .btns{display:flex;flex-direction:column;gap:10px;margin-top:10px}
@@ -414,7 +415,7 @@ async function drawTicket(){
     x.fillStyle=tc; x.textBaseline="middle"; x.fillText(o.v.title,36,44); x.restore(); });
   y = y + Math.max(liked.length,1)*112 + 28;
   /* описание вечера */
-  x.fillStyle=NAVY; x.textBaseline="top"; x.font=ft("Onest",600,40); const sub=wrapLines(x,type.sub,900); sub.forEach((l,i)=>x.fillText(l,70,y+i*54)); y+=sub.length*54+36;
+  x.fillStyle="#fff"; x.textBaseline="top"; x.font=ft("Onest",600,40); const sub=wrapLines(x,type.sub,900); sub.forEach((l,i)=>x.fillText(l,70,y+i*54)); y+=sub.length*54+36;
   /* карточка с прогулкой */
   const meta=[top.format,top.duration].filter(Boolean).join(", ")+" · по расписанию";
   x.font=ft("Unbounded",900,46); setLS(x,-1); const wl=wrapLines(x,top.title,808); setLS(x,0);
