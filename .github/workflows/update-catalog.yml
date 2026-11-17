@@ -12,11 +12,16 @@ concurrency:
 permissions:
   contents: write
   issues: write
+  pages: write
+  id-token: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -39,6 +44,7 @@ jobs:
           fi
 
       - name: Сохранить, если каталог изменился
+        id: save
         if: success()
         run: |
           git config user.name "catalog-bot"
@@ -46,10 +52,33 @@ jobs:
           git add data/catalog.json data/report.txt
           if git diff --cached --quiet; then
             echo "Изменений нет"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "Обновление каталога"
             git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
+
+      # Публикуем сайт, если каталог изменился или запуск ручной
+      - name: Собрать папку сайта
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        run: |
+          mkdir -p _site
+          cp -r site/. _site/
+          cp data/catalog.json _site/catalog.json
+
+      - uses: actions/configure-pages@v5
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+
+      - uses: actions/upload-pages-artifact@v3
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        with:
+          path: _site
+
+      - name: Опубликовать на GitHub Pages
+        id: deploy
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        uses: actions/deploy-pages@v4
 
       # Если сбор упал, заводим issue (один открытый на все сбои подряд)
       - name: Уведомить о сбое
