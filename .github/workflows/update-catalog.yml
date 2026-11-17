@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "17 * * * *"   # каждый час в :17 (время UTC)
   workflow_dispatch: {}    # кнопка «Run workflow» для ручного запуска
+  push:                    # правка сайта в папке site публикуется сама
+    branches: [main]
+    paths: ["site/**"]
 
 concurrency:
   group: update-catalog
@@ -62,25 +65,25 @@ jobs:
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      # Публикуем сайт, если каталог изменился или запуск ручной
+      # Публикуем сайт, если каталог изменился, запуск ручной или это пуш в папку site
       - name: Собрать папку сайта
-        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name != 'schedule')
         run: |
           mkdir -p _site
           cp -r site/. _site/
           cp data/catalog.json _site/catalog.json
 
       - uses: actions/configure-pages@v5
-        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name != 'schedule')
 
       - uses: actions/upload-pages-artifact@v3
-        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name != 'schedule')
         with:
           path: _site
 
       - name: Опубликовать на GitHub Pages
         id: deploy
-        if: success() && (steps.save.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
+        if: success() && (steps.save.outputs.changed == 'true' || github.event_name != 'schedule')
         uses: actions/deploy-pages@v4
 
       # Если сбор упал, заводим issue (один открытый на все сбои подряд)
