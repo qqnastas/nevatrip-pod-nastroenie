@@ -31,7 +31,8 @@
           },
           "seed": 59,
           "photo": "img/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
-          "want": "целый день в другом городе"
+          "want": "целый день в другом городе",
+          "exclude": true
         },
         {
           "id": "dinner",
@@ -110,7 +111,8 @@
           },
           "seed": 53,
           "photo": "img/elochnyie-igrushki.jpg",
-          "want": "мастер-класс"
+          "want": "мастер-класс",
+          "exclude": true
         },
         {
           "id": "mystic",
@@ -160,7 +162,8 @@
             "water": 1
           },
           "seed": 47,
-          "want": "скорость и ветер с залива"
+          "want": "скорость и ветер с залива",
+          "exclude": true
         }
       ]
     }

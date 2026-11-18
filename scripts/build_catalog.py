@@ -74,6 +74,50 @@ def load_sheet():
         return {u: {"tags": t, "format": ""} for u, t in old.items()}, warn, "data/tags.json"
 
 
+AGE_RE = [
+    re.compile(r"возрастное ограничение[^.\n]{0,40}?(\d{1,2})\s*\+", re.I),
+    re.compile(r"(?:от|с)\s+(\d{1,2})\s+лет(?:[^.\n]{0,40})(?:допуска|можно|пускают|принима)", re.I),
+    re.compile(r"(?:дети|детей|ребен\w+)\s+(?:до\s+)?(\d{1,2})\s+лет[^.\n]{0,30}(?:не допуска|не пуска|не принима|нельзя)", re.I),
+    re.compile(r"только если ребенку уже есть (\d{1,2})\s+лет", re.I),
+    re.compile(r"(\d{1,2})\s*\+", re.I),
+]
+def read_age(uri):
+    """Минимальный возраст из текста страницы; 0, если ограничения не нашли."""
+    import html as _h
+    req = urllib.request.Request(f"{BASE}/{uri}", headers={"User-Agent": UA})
+    h = urllib.request.urlopen(req, timeout=30).read().decode("utf-8")
+    body = re.sub(r"<script.*?</script>|<style.*?</style>", "", h, flags=re.S)
+    lines = [l.strip() for l in _h.unescape(re.sub(r"<[^>]+>", "\n", body)).split("\n") if l.strip()]
+    found = []
+    for l in lines:
+        if not re.search(r"возраст|ограничен|лет|\d\s*\+|ребен|дет", l, re.I) or len(l) > 300: continue
+        for rx in AGE_RE[:4]:
+            m = rx.search(l)
+            if m: found.append(int(m.group(1)))
+        if re.search(r"возраст|ограничен", l, re.I):
+            m = AGE_RE[4].search(l)
+            if m: found.append(int(m.group(1)))
+    found = [a for a in found if 3 <= a <= 21]
+    return max(found) if found else 0
+
+
+def load_meta(items):
+    """data/meta.json: uri -> {age_min}. Новые прогулки дочитываем, остальные берем из файла."""
+    path = ROOT / "data/meta.json"
+    meta = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    changed = False
+    for it in items:
+        if it["uri"] not in meta:
+            try:
+                meta[it["uri"]] = {"age_min": read_age(it["uri"])}; changed = True; time.sleep(3)
+            except Exception as e:
+                print(f"Возраст не прочитан: {it['uri']} ({e})")
+    if changed:
+        path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
+    for it in items:
+        it["age_min"] = meta.get(it["uri"], {}).get("age_min", 0)
+
+
 THUMB_W = 640
 def make_thumbs(items):
     """Маленькие копии фото прогулок в site/img/. Скачиваем только то, чего еще нет."""
@@ -134,6 +178,7 @@ def main():
         return 1
 
     make_thumbs(items)
+    load_meta(items)
     out = {"generated": datetime.now(timezone.utc).isoformat(timespec="seconds"), "items": items}
     path = ROOT / "data/catalog.json"
     try:

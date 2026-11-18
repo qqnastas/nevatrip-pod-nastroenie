@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#7DD3FC">
-<title>Что хочется</title>
+<title>В точку</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;900&family=Onest:wght@400;600&display=swap" rel="stylesheet">
@@ -153,7 +153,7 @@ h1,h2,h3,p{margin:0}
   </section>
 
   <section class="screen" id="s-swipe" aria-label="Карточки настроений">
-    <div class="sw-head"><span class="brand">Что хочется</span></div>
+    <div class="sw-head"><span class="brand">В точку</span></div>
     <div class="progress" id="progress"></div>
     <div class="num" id="num" aria-hidden="true">01</div>
     <div class="deck" id="deck"></div>
@@ -171,12 +171,12 @@ h1,h2,h3,p{margin:0}
       <svg class="spark" style="right:22px;top:196px" aria-hidden="true"><use href="#star"/></svg>
       <svg class="spark g" style="left:10px;top:440px;width:30px;height:30px" aria-hidden="true"><use href="#star"/></svg>
       <svg class="spark" style="right:14px;top:780px;width:28px;height:28px" aria-hidden="true"><use href="#star"/></svg>
-      <span class="brand">Что хочется</span>
+      <span class="brand">В точку</span>
       <h1 id="h-res">Вот что сейчас подходит больше всего</h1>
       <p class="sub">Собрали по твоим ответам</p>
       <div class="results" id="results"></div>
       <div class="res-actions">
-        <button class="btn mag" id="to-ticket">Поделиться собой</button>
+        <button class="btn mag" id="to-ticket">Сохранить для сторис</button>
         <button class="btn white" id="again">Пройти еще раз</button>
       </div>
     </div>
@@ -342,15 +342,25 @@ const cheaper = (a,b) => (a.it.price_from-b.it.price_from) || ((a.it.duration_se
    при разнице до 5 п.п. выше то, что дешевле и короче */
 function pickTop(p){
   const now = Date.now();
-  let pool = CAT.filter(i=>i.next_time*1000>now).map(it=>{ const sc=score(it,p); return {it, s:sc, pct:pctOf(sc)}; }).sort((a,b)=>b.s-a.s);
+  const prim = c => Object.entries(c.tags).filter(([t,w])=>w>=2).map(([t])=>t);
+  const likedPrim = new Set(), blocked = new Set(); let kidsLiked = false;
+  DECK.forEach((c,i)=>{ if (answers[i]>0){ prim(c).forEach(t=>likedPrim.add(t)); if (c.tags.kids>=2) kidsLiked = true; } });
+  DECK.forEach((c,i)=>{ if (answers[i]<0 && c.exclude) prim(c).forEach(t=>{ if(!likedPrim.has(t)) blocked.add(t); }); });   /* «Мимо» на выезды и мастер-классы убирает их совсем */
+  const kidsOk = i => (i.age_min||0) < 10 && (i.duration_sec||0) <= 7*3600;                                       /* «С детьми» это условие */
+  const all = CAT.filter(i=>i.next_time*1000>now);
+  const stages = [ all.filter(i=>!i.tags.some(t=>blocked.has(t)) && (!kidsLiked||kidsOk(i))),
+                   all.filter(i=>!kidsLiked||kidsOk(i)),
+                   all.filter(i=>!i.tags.some(t=>blocked.has(t))),
+                   all ];
+  const base = stages.find(l=>l.length>=3) || all;
+  let pool = base.map(it=>{ const sc=score(it,p)+(kidsLiked&&it.tags.includes("kids")?0.2:0); return {it, s:sc, pct:pctOf(sc)}; }).sort((a,b)=>b.s-a.s);
   const take = list => { if(!list.length) return null; const lead=list[0]; return list.filter(r=>lead.pct-r.pct<=5).sort(cheaper)[0]; };
   const out = [];
   for (let k=0;k<2;k++){ const pick=take(pool); if(!pick) break; out.push(pick); pool=pool.filter(r=>r!==pick); }
   const covered = new Set(); out.forEach(r=>r.it.tags.forEach(t=>covered.add(t)));
-  const dirs = DECK.map((v,i)=>({v,i})).filter(o=>answers[o.i]>0)
-    .map(o=>Object.entries(o.v.tags).filter(([t,w])=>w>=2).map(([t])=>t)).filter(prim=>prim.length && !prim.some(t=>covered.has(t)));
+  const dirs = DECK.map((v,i)=>({v,i})).filter(o=>answers[o.i]>0).map(o=>prim(o.v)).filter(pr=>pr.length && !pr.some(t=>covered.has(t)));
   let third = null;
-  dirs.forEach(prim=>{ const pick=take(pool.filter(r=>prim.some(t=>r.it.tags.includes(t)))); if (pick && (!third || pick.s>third.s)) third=pick; });
+  dirs.forEach(pr=>{ const pick=take(pool.filter(r=>pr.some(t=>r.it.tags.includes(t)))); if (pick && (!third || pick.s>third.s)) third=pick; });
   if (!third) third = take(pool);
   if (third) out.push(third);
   return out;
@@ -440,7 +450,7 @@ async function drawTicket(){
       const cur=lines[lines.length-1]; const gap=(cur.length&&!tk.glue)?sp:0; cur.push({...tk,w,x:cw+gap}); cw+=gap+w; });
     setLS(x,0); return lines; };
   let fs=120, lines;
-  for (; fs>=56; fs-=4){ lines=layout(fs); if (lines.length*fs*1.3<=980) break; }
+  for (; fs>=48; fs-=4){ lines=layout(fs); const widest=Math.max(...lines.map(ln=>ln.length?ln[ln.length-1].x+ln[ln.length-1].w:0)); if (lines.length*fs*1.3<=980 && widest<=MAXW+40) break; }
   const lh=fs*1.3, blockH=lines.length*lh, y0=Math.max(380,820-blockH/2);
   const fills=[["#fff",NAVY],[MAG,"#fff"],[GOLD,NAVY]];
   x.save(); x.translate(70,y0); x.rotate(2*Math.PI/180); x.textBaseline="middle"; x.font=ft("Unbounded",900,fs); setLS(x,-fs*.03);
