@@ -18,7 +18,8 @@
             "lights": 2
           },
           "seed": 7,
-          "photo": "img/katolicheskoe-rozhdestvo-v-peterburge.jpg"
+          "photo": "img/katolicheskoe-rozhdestvo-v-peterburge.jpg",
+          "want": "огни ночного города"
         },
         {
           "id": "trip",
@@ -29,7 +30,8 @@
             "trip": 2
           },
           "seed": 59,
-          "photo": "img/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg"
+          "photo": "img/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
+          "want": "целый день в другом городе"
         },
         {
           "id": "dinner",
@@ -41,7 +43,8 @@
             "water": 1
           },
           "seed": 19,
-          "photo": "img/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg"
+          "photo": "img/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
+          "want": "ужин с видом"
         },
         {
           "id": "guide",
@@ -53,7 +56,8 @@
             "history": 1
           },
           "seed": 31,
-          "photo": "img/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg"
+          "photo": "img/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg",
+          "want": "хороший рассказчик"
         },
         {
           "id": "ny",
@@ -66,7 +70,8 @@
             "lights": 1
           },
           "seed": 12,
-          "photo": "img/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg"
+          "photo": "img/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg",
+          "want": "праздничный центр"
         },
         {
           "id": "cozy",
@@ -78,7 +83,8 @@
             "music": 1
           },
           "seed": 23,
-          "photo": "img/progulka-s-ekskursiey-na-teplohode-zimoy.jpg"
+          "photo": "img/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
+          "want": "тепло"
         },
         {
           "id": "palace",
@@ -91,7 +97,8 @@
             "indoor": 1
           },
           "seed": 37,
-          "photo": "img/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg"
+          "photo": "img/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg",
+          "want": "дворцы"
         },
         {
           "id": "craft",
@@ -102,7 +109,8 @@
             "masterclass": 2
           },
           "seed": 53,
-          "photo": "img/elochnyie-igrushki.jpg"
+          "photo": "img/elochnyie-igrushki.jpg",
+          "want": "мастер-класс"
         },
         {
           "id": "mystic",
@@ -114,7 +122,8 @@
             "history": 1
           },
           "seed": 41,
-          "photo": "img/avtobusnaya-ekskursiya-po-vechernemu-peterburgu.jpg"
+          "photo": "img/avtobusnaya-ekskursiya-po-vechernemu-peterburgu.jpg",
+          "want": "легенды"
         },
         {
           "id": "kids",
@@ -125,7 +134,8 @@
             "kids": 2
           },
           "seed": 61,
-          "photo": "img/ozhidanie-rozhdestva.jpg"
+          "photo": "img/ozhidanie-rozhdestva.jpg",
+          "want": "день, интересный детям"
         },
         {
           "id": "short",
@@ -137,7 +147,8 @@
             "trip": -1
           },
           "seed": 67,
-          "photo": "img/ekskursiya-v-kunstkameru.jpg"
+          "photo": "img/ekskursiya-v-kunstkameru.jpg",
+          "want": "пара свободных часов"
         },
         {
           "id": "drive",
@@ -148,7 +159,8 @@
             "drive": 2,
             "water": 1
           },
-          "seed": 47
+          "seed": 47,
+          "want": "скорость и ветер с залива"
         }
       ]
     }
