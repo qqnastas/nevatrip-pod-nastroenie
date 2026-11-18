@@ -46,7 +46,8 @@ h1,h2,h3,p{margin:0}
 .ticker span{padding-right:0}
 @keyframes tick{to{transform:translateX(-50%)}}
 .q{position:absolute;left:30%;top:62px;font-family:var(--display);font-weight:900;font-size:min(62vw,270px);line-height:.85;transform:rotate(-6deg);z-index:1}
-.start-brand{position:absolute;left:20px;top:max(env(safe-area-inset-top),18px);z-index:4;font-family:var(--display);font-weight:600;font-size:12px;line-height:16px;letter-spacing:.5px;text-decoration:none}
+.start-brand{position:absolute;left:20px;top:max(env(safe-area-inset-top),14px);z-index:4;line-height:0}
+.start-brand img{display:block;width:88px;height:auto}
 #appname{position:absolute;right:16px;top:min(30vh,250px);z-index:4;transform:rotate(6deg);background:var(--mag);color:#fff;font-size:20px;padding:9px 20px}
 #season{position:absolute;left:30px;top:min(36vh,300px);transform:rotate(-4deg);z-index:2}
 .start-body{margin-top:auto;display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
@@ -140,8 +141,8 @@ h1,h2,h3,p{margin:0}
 .inv-actions .btn{min-height:54px}
 .inv-back{align-self:center;font-weight:600;font-size:14px;text-decoration:underline;padding:6px}
 .btn.invite{min-height:52px;background:var(--navy);color:#fff}
-.toast{position:absolute;left:16px;right:16px;bottom:22px;z-index:30;background:var(--navy);color:#fff;border-radius:20px;padding:14px 18px;font-size:14px;line-height:20px;transform:translateY(160%);transition:transform .25s;pointer-events:none}
-.toast.on{transform:none}
+.toast{position:absolute;left:16px;right:16px;bottom:22px;z-index:30;background:var(--navy);color:#fff;border-radius:20px;padding:14px 18px;font-size:14px;line-height:20px;transform:translateY(160%);opacity:0;visibility:hidden;transition:transform .25s,opacity .25s,visibility .25s;pointer-events:none}
+.toast.on{transform:none;opacity:1;visibility:visible}
 
 @media (prefers-reduced-motion:reduce){.ticker div{animation:none}.btn{transition:none}}
 @media (min-width:600px){#app{height:min(100dvh,900px);margin-top:max(0px,calc((100dvh - 900px)/2));border-radius:36px;box-shadow:0 20px 60px rgba(0,0,30,.35)}}
@@ -157,7 +158,7 @@ h1,h2,h3,p{margin:0}
   </div>
 
   <section class="screen on" id="s-start" aria-labelledby="h-start">
-    <a class="start-brand" href="https://nevatrip.ru/" target="_blank" rel="noopener">nevatrip</a>
+    <a class="start-brand" href="https://nevatrip.ru/" target="_blank" rel="noopener" aria-label="nevatrip.ru"><img src="img/logo-nevatrip.svg" alt="nevatrip" width="88" height="17"></a>
     <div class="ticker" aria-hidden="true"><div id="ticker"></div></div>
     <div class="q" aria-hidden="true">?</div>
     <span class="sticker" id="appname">В точку</span>
