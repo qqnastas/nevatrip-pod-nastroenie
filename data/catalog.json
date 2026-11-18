@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T05:25:55+00:00",
+ "generated": "2026-11-18T05:35:16+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -724,28 +724,6 @@
    "age_min": 0,
    "days": [
     1,
-    6
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada",
-   "title": "Экскурсия «Крепости Северо-Запада»",
-   "price_from": 4390,
-   "duration": "10 часов ",
-   "duration_sec": 35999,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
-   "next_time": 1794979800,
-   "tags": [
-    "trip",
-    "history",
-    "guide"
-   ],
-   "format": "Выезд",
-   "photo": "img/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
-   "photo_xl": "img/xl/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
-   "age_min": 0,
-   "days": [
-    2,
     6
    ]
   },
