@@ -4,4 +4,4 @@
   нет
 
 В таблице есть, среди активных нет:
-  avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada  (дата в прошлом)
+  avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg  (дата в прошлом)

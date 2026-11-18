@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-18T05:35:16+00:00",
+ "generated": "2026-11-18T11:41:47+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -240,33 +240,6 @@
    "days": null
   },
   {
-   "uri": "avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg",
-   "title": "Обзорная автобусная экскурсия по центру Санкт-Петербурга",
-   "price_from": 790,
-   "duration": "2 часа 30 минут",
-   "duration_sec": 10798,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg",
-   "next_time": 1795001400,
-   "tags": [
-    "guide",
-    "history",
-    "cozy"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg",
-   "photo_xl": "img/xl/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-po-vechernemu-peterburgu",
    "title": "Автобусная экскурсия по вечернему Петербургу",
    "price_from": 750,
@@ -299,7 +272,7 @@
    "duration": "от 5 до 6 часов",
    "duration_sec": 18001,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2260167989-1.jpg",
-   "next_time": 1794992400,
+   "next_time": 1795078800,
    "tags": [
     "trip",
     "history"
@@ -377,7 +350,7 @@
    "duration": "от 5,5 до 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnaya-ekskursiya-v-pushkin/avtobusnye-ehkskursii:avtobusnaya-ekskursiya-v-pushkin_min.jpg",
-   "next_time": 1794992400,
+   "next_time": 1795165200,
    "tags": [
     "palace",
     "trip",
@@ -400,7 +373,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1794994200,
+   "next_time": 1795080600,
    "tags": [
     "guide",
     "short"
@@ -520,7 +493,7 @@
    "duration": "от 7,5 до 8 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnayia-ekskursiya-v-pushkin-pavlovsk.jpg",
-   "next_time": 1794987000,
+   "next_time": 1795591800,
    "tags": [
     "palace",
     "trip",
@@ -565,7 +538,7 @@
    "duration": "от 2,5 до 3 часов",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/day/shutterstock_2757587345-1.jpg",
-   "next_time": 1794994200,
+   "next_time": 1795080600,
    "tags": [
     "guide",
     "museum",
@@ -636,7 +609,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1794988800,
+   "next_time": 1795012200,
    "tags": [
     "guide",
     "short"
@@ -662,7 +635,7 @@
    "duration": "от 3 до 3,5 часов",
    "duration_sec": 10800,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti.jpg",
-   "next_time": 1794988800,
+   "next_time": 1795075200,
    "tags": [
     "guide",
     "history"
@@ -728,13 +701,35 @@
    ]
   },
   {
+   "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada",
+   "title": "Экскурсия «Крепости Северо-Запада»",
+   "price_from": 4390,
+   "duration": "10 часов ",
+   "duration_sec": 35999,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
+   "next_time": 1795325400,
+   "tags": [
+    "trip",
+    "history",
+    "guide"
+   ],
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
+   "photo_xl": "img/xl/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
+   "age_min": 0,
+   "days": [
+    2,
+    6
+   ]
+  },
+  {
    "uri": "avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya",
    "title": "Экскурсия в Пушкин с посещением лицея и Янтарной комнаты",
    "price_from": 4500,
    "duration": " 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya.jpg",
-   "next_time": 1794987000,
+   "next_time": 1795073400,
    "tags": [
     "palace",
     "trip",
@@ -860,7 +855,7 @@
    "duration": "1 час",
    "duration_sec": 3599,
    "img": "https://nevatrip.ru/assets/img/e/day/ekskursiya-na-kreyser-avrora-1.jpg",
-   "next_time": 1794988800,
+   "next_time": 1795003200,
    "tags": [
     "museum",
     "history",
