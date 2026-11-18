@@ -494,7 +494,7 @@ async function drawInvite(it, when){
   x.fillStyle="#fff"; x.textBaseline="middle"; x.fillText(wt,LEFT+32,lay.whenY+lay.whenH/2+2); x.textBaseline="top";
   /* подпись: логотип из UI-кита и адрес */
   const logo = await loadImg("img/logo-nevatrip-white.svg");
-  if (logo){ const lw=300, lh=lw*41/211; x.drawImage(logo,LEFT,1690,lw,lh); }
+  if (logo){ const lw=190, lh=lw*41/211; x.drawImage(logo,LEFT,1700,lw,lh); }
   if (!logo){ x.fillStyle="rgba(255,255,255,.9)"; x.font=ft("Unbounded",600,30); x.fillText("nevatrip.ru",LEFT,1722); }   /* без логотипа остается адрес текстом */
   return cv;
 }
