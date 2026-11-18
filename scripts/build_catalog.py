@@ -119,29 +119,47 @@ def load_meta(items):
 
 
 THUMB_W = 640
+XL_W = 1600
+def _fetch_image(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA})
+    return urllib.request.urlopen(req, timeout=40).read()
+
+
 def make_thumbs(items):
-    """Маленькие копии фото прогулок в site/img/. Скачиваем только то, чего еще нет."""
+    """Копии фото прогулок: маленькая для карточек (site/img) и крупная для картинки-приглашения (site/img/xl).
+    Скачиваем только то, чего еще нет."""
     try:
         from PIL import Image
     except Exception:
         print("Pillow не установлен, фото пропущены"); return
     import io as _io
     out_dir = ROOT / "site/img"; out_dir.mkdir(parents=True, exist_ok=True)
+    xl_dir = out_dir / "xl"; xl_dir.mkdir(parents=True, exist_ok=True)
     for it in items:
         slug = it["uri"].split("/")[-1]
-        dest = out_dir / f"{slug}.jpg"
-        if not dest.exists() and it.get("img"):
+        dest, dest_xl = out_dir / f"{slug}.jpg", xl_dir / f"{slug}.jpg"
+        if (not dest.exists() or not dest_xl.exists()) and (it.get("img") or it.get("img_xl")):
             try:
-                req = urllib.request.Request(it["img"], headers={"User-Agent": UA})
-                raw = urllib.request.urlopen(req, timeout=40).read()
+                raw = None
+                for url in (it.get("img_xl"), it.get("img")):
+                    if not url: continue
+                    try: raw = _fetch_image(url); break
+                    except Exception: continue
+                if raw is None: raise ValueError("нет доступного фото")
                 im = Image.open(_io.BytesIO(raw)).convert("RGB")
-                h = round(im.height * THUMB_W / im.width)
-                im.resize((THUMB_W, h), Image.LANCZOS).save(dest, "JPEG", quality=72, optimize=True, progressive=True)
+                if not dest.exists():
+                    h = round(im.height * THUMB_W / im.width)
+                    im.resize((THUMB_W, h), Image.LANCZOS).save(dest, "JPEG", quality=72, optimize=True, progressive=True)
+                if not dest_xl.exists():
+                    w = min(XL_W, im.width); h = round(im.height * w / im.width)
+                    im.resize((w, h), Image.LANCZOS).save(dest_xl, "JPEG", quality=74, optimize=True, progressive=True)
                 time.sleep(1)
             except Exception as e:
                 print(f"Фото не скачалось: {it['uri']} ({e})")
         if dest.exists():
             it["photo"] = f"img/{slug}.jpg"
+        if dest_xl.exists():
+            it["photo_xl"] = f"img/xl/{slug}.jpg"
 
 
 def main():
