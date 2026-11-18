@@ -46,9 +46,7 @@ h1,h2,h3,p{margin:0}
 .ticker span{flex:none;display:block}
 @keyframes tick{to{transform:translateX(-50%)}}
 .q{position:absolute;left:30%;top:62px;font-family:var(--display);font-weight:900;font-size:min(62vw,270px);line-height:.85;transform:rotate(-6deg);z-index:1}
-.start-brand{position:absolute;left:20px;top:max(env(safe-area-inset-top),14px);z-index:4;display:flex;align-items:center;gap:9px;text-decoration:none}
-.start-brand span{font-family:var(--display);font-weight:600;font-size:13px;line-height:1;color:var(--navy);white-space:nowrap}
-.start-brand img{display:block;width:88px;height:auto}
+.start-brand{position:absolute;left:20px;top:max(env(safe-area-inset-top),14px);z-index:4;text-decoration:none;font-family:var(--display);font-weight:600;font-size:15px;line-height:1.2;color:var(--navy);letter-spacing:-.01em}
 #season{position:absolute;left:30px;top:min(36vh,300px);transform:rotate(-4deg);z-index:2}
 .start-body{margin-top:auto;display:flex;flex-direction:column;gap:12px;position:relative;z-index:2}
 .start-body h1{color:var(--gold);font-family:var(--display);font-weight:900;font-size:min(7vw,27px);line-height:1.12;letter-spacing:-.5px}
@@ -158,7 +156,7 @@ h1,h2,h3,p{margin:0}
   </div>
 
   <section class="screen on" id="s-start" aria-labelledby="h-start">
-    <a class="start-brand" href="https://nevatrip.ru/" target="_blank" rel="noopener" aria-label="nevatrip, В точку"><img src="img/logo-nevatrip.svg" alt="nevatrip" width="88" height="17"><span>· В точку</span></a>
+    <a class="start-brand" href="https://nevatrip.ru/" target="_blank" rel="noopener" aria-label="nevatrip, В точку">nevatrip · В точку</a>
     <div class="ticker" aria-hidden="true"><div id="ticker"></div></div>
     <div class="q" aria-hidden="true">?</div>
     <span class="sticker" id="season"></span>
