@@ -1,122 +1,332 @@
 {
  "day/ehkskursiya-v-novogodnyuyu-noch": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "day/rozhdestvenskiy-uzhin-kruiz-po-neve": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "day/progulka-s-ekskursiey-na-teplohode-zimoy": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "day/katolicheskoe-rozhdestvo-v-peterburge": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "avtobusnye-ehkskursii/elochnyie-igrushki": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "avtobusnye-ehkskursii/novogodnij-kronshtadt": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "avtobusnye-ehkskursii/ozhidanie-rozhdestva": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "avtobusnye-ehkskursii/rozhdestvenskie-istorii": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "avtobusnye-ehkskursii/novogodnyaya-ehkskursiya-v-zimnie-kanikuly": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/rozhdestvenskij-vyborg": {
-  "age_min": 0
+  "age_min": 0,
+  "days": null
  },
  "avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-po-vechernemu-peterburgu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/misticheskij-peterburg-ekskursiya": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/peterburg-ekskursii-vyborg": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   3,
+   4,
+   5
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-v-pushkin": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   2,
+   4,
+   6
+  ]
  },
  "day/obzornaya-ekskursiya-po-peterburgu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-strelnu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   3,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/ehkskursiya-v-lomonosov": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   3,
+   5
+  ]
  },
  "avtobusnye-ehkskursii/ehkskursiya-v-gatchinu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   2,
+   4,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   2,
+   5
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnayia-ekskursiya-v-pushkin-pavlovsk": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   2
+  ]
  },
  "avtobusnye-ehkskursii/ehkskursiya-v-pavlovsk": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   3
+  ]
  },
  "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   5
+  ]
  },
  "avtobusnye-ehkskursii/ehkskursiya-v-velikij-novgorod": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   5
+  ]
  },
  "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/ekskursiya-v-petergof": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   3,
+   5
+  ]
  },
  "avtobusnye-ehkskursii/kareliya-ekskursii": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   2,
+   6
+  ]
  },
  "avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "peshie-ekskursii/ekskursiya-v-kunstkameru": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   1,
+   4,
+   5,
+   6
+  ]
  },
  "muzei/obzornaya-ekskursiya-po-russkomu-muzeyu": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   5
+  ]
  },
  "peshie-ekskursii/posledniy-put-aleksandra-ii": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   0,
+   1,
+   3,
+   4,
+   5,
+   6
+  ]
  },
  "peshie-ekskursii/ekskursiya-v-yusupovskiy-dvorets": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   4,
+   5,
+   6
+  ]
  },
  "peshie-ekskursii/ekskursiya-na-kreyser-avrora": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   2,
+   4,
+   5,
+   6
+  ]
  },
  "peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   4,
+   5,
+   6
+  ]
  },
  "peshie-ekskursii/ekskursiya-v-zolotuyu-kladovuyu-ermitazha": {
-  "age_min": 0
+  "age_min": 0,
+  "days": [
+   4,
+   5,
+   6
+  ]
  },
  "peshie-ekskursii/ekskursiya-v-osobnyak-kelha": {
-  "age_min": 12
+  "age_min": 12,
+  "days": null
  }
 }

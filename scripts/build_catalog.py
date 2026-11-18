@@ -101,21 +101,58 @@ def read_age(uri):
     return max(found) if found else 0
 
 
+DAY_STEMS = [("понедельник", 0), ("вторник", 1), ("сред", 2), ("четверг", 3), ("пятниц", 4), ("суббот", 5), ("воскресен", 6)]
+def parse_days(sched):
+    """Дни недели (0=пн … 6=вс), когда идет прогулка, по строке «Расписание». None, если по тексту не понять."""
+    s = (sched or "").lower()
+    s = re.split(r"\.\s", s)[0]            # дальше идут пояснения про кнопку «Выбрать дату»
+    if re.search(r"\d{1,2}(,| и)?\s*(\d{1,2}\s*)?(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)", s) and "ежедневно" not in s:
+        return None                          # конкретные даты, не регулярное расписание
+    if "ежедневно" in s:
+        days = set(range(7))
+        m = re.search(r"кроме\s+([^,.;]+)", s)
+        if m:
+            for stem, d in DAY_STEMS:
+                if m.group(1).strip().startswith(stem[:5]): days.discard(d)
+        return sorted(days)
+    days = sorted({d for stem, d in DAY_STEMS if stem in s})
+    return days or None
+
+
+def read_schedule(uri):
+    """Строка «Расписание» со страницы прогулки (сначала берем из data/pages.json, иначе читаем страницу)."""
+    pj = ROOT / "data/pages.json"
+    if pj.exists():
+        pages = json.loads(pj.read_text(encoding="utf-8"))
+        if uri in pages and pages[uri].get("facts", {}).get("Расписание"):
+            return pages[uri]["facts"]["Расписание"]
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from collect_pages import parse
+    return parse(fetch(uri)).get("facts", {}).get("Расписание", "")
+
+
 def load_meta(items):
-    """data/meta.json: uri -> {age_min}. Новые прогулки дочитываем, остальные берем из файла."""
+    """data/meta.json: uri -> {age_min, days}. Новые прогулки дочитываем, остальные берем из файла."""
     path = ROOT / "data/meta.json"
     meta = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
     changed = False
     for it in items:
-        if it["uri"] not in meta:
+        m = meta.setdefault(it["uri"], {})
+        if "age_min" not in m:
             try:
-                meta[it["uri"]] = {"age_min": read_age(it["uri"])}; changed = True; time.sleep(3)
+                m["age_min"] = read_age(it["uri"]); changed = True; time.sleep(3)
             except Exception as e:
                 print(f"Возраст не прочитан: {it['uri']} ({e})")
+        if "days" not in m:
+            try:
+                m["days"] = parse_days(read_schedule(it["uri"])); changed = True; time.sleep(2)
+            except Exception as e:
+                print(f"Расписание не прочитано: {it['uri']} ({e})")
     if changed:
         path.write_text(json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8")
     for it in items:
         it["age_min"] = meta.get(it["uri"], {}).get("age_min", 0)
+        it["days"] = meta.get(it["uri"], {}).get("days")
 
 
 THUMB_W = 640
@@ -162,6 +199,34 @@ def make_thumbs(items):
             it["photo_xl"] = f"img/xl/{slug}.jpg"
 
 
+INV_W = 1600
+def make_invite_photos(items):
+    """Атмосферные фото для картинки-приглашения: data/invite_photos.json (uri -> путь в галерее, например 887/11982.jpg).
+    Если фото не указано или не скачалось, в приглашении остается обычное фото прогулки."""
+    path = ROOT / "data/invite_photos.json"
+    if not path.exists(): return
+    try:
+        from PIL import Image
+    except Exception:
+        return
+    import io as _io
+    pins = json.loads(path.read_text(encoding="utf-8"))
+    out_dir = ROOT / "site/img/inv"; out_dir.mkdir(parents=True, exist_ok=True)
+    for it in items:
+        g = pins.get(it["uri"])
+        if not g: continue
+        dest = out_dir / f'{it["uri"].split("/")[-1]}.jpg'
+        if not dest.exists():
+            try:
+                im = Image.open(_io.BytesIO(_fetch_image(f"{BASE}/assets/gallery/{g}"))).convert("RGB")
+                w = min(INV_W, im.width); h = round(im.height * w / im.width)
+                im.resize((w, h), Image.LANCZOS).save(dest, "JPEG", quality=76, optimize=True, progressive=True)
+                time.sleep(1)
+            except Exception as e:
+                print(f"Фото для приглашения не скачалось: {it['uri']} ({e})"); continue
+        it["photo_inv"] = f'img/inv/{dest.name}'
+
+
 def main():
     now = time.time()
     found = {}
@@ -196,6 +261,7 @@ def main():
         return 1
 
     make_thumbs(items)
+    make_invite_photos(items)
     load_meta(items)
     out = {"generated": datetime.now(timezone.utc).isoformat(timespec="seconds"), "items": items}
     path = ROOT / "data/catalog.json"
