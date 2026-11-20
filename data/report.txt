@@ -1,7 +1,10 @@
-Активных: 40, пропущено: 10. Теги из: Google-таблица
+Активных: 36, пропущено: 14. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
   нет
 
 В таблице есть, среди активных нет:
-  нет
+  peshie-ekskursii/ekskursiya-v-kunstkameru  (дата в прошлом)
+  peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha  (дата в прошлом)
+  avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg  (нет ближайшей даты)
+  peshie-ekskursii/ekskursiya-v-zolotuyu-kladovuyu-ermitazha  (дата в прошлом)
