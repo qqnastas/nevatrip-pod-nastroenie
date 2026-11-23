@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22T19:39:36+00:00",
+ "generated": "2026-11-23T09:04:23+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -342,32 +342,6 @@
    ]
   },
   {
-   "uri": "day/obzornaya-ekskursiya-po-peterburgu",
-   "title": "Обзорная экскурсия «Первое свидание с Петербургом»",
-   "price_from": 590,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1795426200,
-   "tags": [
-    "guide",
-    "short"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg",
-   "photo_xl": "img/xl/obzornaya-ekskursiya-po-peterburgu.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-lomonosov",
    "title": "Экскурсия в Ораниенбаум (Ломоносов)",
    "price_from": 4150,
@@ -539,7 +513,7 @@
    "duration": "от 5 до 6 часов",
    "duration_sec": 18001,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2260167989-1.jpg",
-   "next_time": 1795424400,
+   "next_time": 1795510800,
    "tags": [
     "trip",
     "history"
@@ -547,6 +521,32 @@
    "format": "Выезд",
    "photo": "img/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg",
    "photo_xl": "img/xl/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg",
+   "age_min": 0,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "uri": "day/obzornaya-ekskursiya-po-peterburgu",
+   "title": "Обзорная экскурсия «Первое свидание с Петербургом»",
+   "price_from": 590,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
+   "next_time": 1795426200,
+   "tags": [
+    "guide",
+    "short"
+   ],
+   "format": "Автобус",
+   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg",
+   "photo_xl": "img/xl/obzornaya-ekskursiya-po-peterburgu.jpg",
    "age_min": 0,
    "days": [
     0,
@@ -592,7 +592,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1795420800,
+   "next_time": 1795444200,
    "tags": [
     "guide",
     "short"
@@ -687,7 +687,7 @@
    "duration": "от 3 до 3,5 часов",
    "duration_sec": 10800,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti.jpg",
-   "next_time": 1795420800,
+   "next_time": 1795507200,
    "tags": [
     "guide",
     "history"
@@ -756,7 +756,7 @@
    "duration": " 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya.jpg",
-   "next_time": 1795419000,
+   "next_time": 1795505400,
    "tags": [
     "palace",
     "trip",
