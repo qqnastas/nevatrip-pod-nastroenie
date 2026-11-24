@@ -1,7 +1,7 @@
-Активных: 39, пропущено: 11. Теги из: Google-таблица
+Активных: 41, пропущено: 11. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
-  нет
+  avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis
 
 В таблице есть, среди активных нет:
-  avtobusnye-ehkskursii/peterburg-ekskursii-vyborg  (нет ближайшей даты)
+  нет
