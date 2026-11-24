@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-23T21:23:58+00:00",
+ "generated": "2026-11-24T06:02:18+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -267,27 +267,29 @@
    ]
   },
   {
-   "uri": "avtobusnye-ehkskursii/peterburg-ekskursii-vyborg",
-   "title": "Автобусная экскурсия в Выборг на 1 день",
-   "price_from": 3390,
-   "duration": "11 часов",
-   "duration_sec": 36001,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2621995737-1.jpg",
-   "next_time": 1795499100,
+   "uri": "day/obzornaya-ekskursiya-po-peterburgu",
+   "title": "Обзорная экскурсия «Первое свидание с Петербургом»",
+   "price_from": 590,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
+   "next_time": 1795512600,
    "tags": [
-    "trip",
-    "history",
-    "guide"
+    "guide",
+    "short"
    ],
-   "format": "Выезд",
-   "photo": "img/peterburg-ekskursii-vyborg.jpg",
-   "photo_xl": "img/xl/peterburg-ekskursii-vyborg.jpg",
+   "format": "Автобус",
+   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg",
+   "photo_xl": "img/xl/obzornaya-ekskursiya-po-peterburgu.jpg",
    "age_min": 0,
    "days": [
+    0,
     1,
+    2,
     3,
     4,
-    5
+    5,
+    6
    ]
   },
   {
@@ -533,32 +535,6 @@
    ]
   },
   {
-   "uri": "day/obzornaya-ekskursiya-po-peterburgu",
-   "title": "Обзорная экскурсия «Первое свидание с Петербургом»",
-   "price_from": 590,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1795512600,
-   "tags": [
-    "guide",
-    "short"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg",
-   "photo_xl": "img/xl/obzornaya-ekskursiya-po-peterburgu.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi",
    "title": "Обзорная экскурсия по Петербургу с посещением Эрмитажа",
    "price_from": 2050,
@@ -577,32 +553,6 @@
    "photo_xl": "img/xl/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg",
    "age_min": 0,
    "days": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
-   "title": "Обзорная экскурсия на автобусе по центру Санкт-Петербурга",
-   "price_from": 890,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1795507200,
-   "tags": [
-    "guide",
-    "short"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "photo_xl": "img/xl/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "age_min": 0,
-   "days": [
-    0,
     1,
     2,
     3,
@@ -634,6 +584,32 @@
     1,
     3,
     5
+   ]
+  },
+  {
+   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
+   "title": "Обзорная экскурсия на автобусе по центру Санкт-Петербурга",
+   "price_from": 890,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "next_time": 1795507200,
+   "tags": [
+    "guide",
+    "short"
+   ],
+   "format": "Автобус",
+   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "photo_xl": "img/xl/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "age_min": 0,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
    ]
   },
   {
