@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24T17:44:43+00:00",
+ "generated": "2026-11-25T02:28:54+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -279,15 +279,7 @@
    "photo": "img/obzornaya-ekskursiya-marchellis.jpg",
    "photo_xl": "img/xl/obzornaya-ekskursiya-marchellis.jpg",
    "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
+   "days": null
   },
   {
    "uri": "avtobusnye-ehkskursii/peterburg-ekskursii-vyborg",
@@ -340,29 +332,6 @@
    ]
   },
   {
-   "uri": "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-v-pushkin",
-   "title": "Автобусная экскурсия в Пушкин с посещением Янтарной комнаты",
-   "price_from": 3850,
-   "duration": "от 5,5 до 6 часов",
-   "duration_sec": 35999,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnaya-ekskursiya-v-pushkin/avtobusnye-ehkskursii:avtobusnaya-ekskursiya-v-pushkin_min.jpg",
-   "next_time": 1795597200,
-   "tags": [
-    "palace",
-    "trip",
-    "history"
-   ],
-   "format": "Выезд",
-   "photo": "img/avtobusnaya-ekskursiya-v-pushkin.jpg",
-   "photo_xl": "img/xl/avtobusnaya-ekskursiya-v-pushkin.jpg",
-   "age_min": 0,
-   "days": [
-    2,
-    4,
-    6
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/misticheskij-peterburg-ekskursiya",
    "title": "Экскурсия на автобусе «Мистический Петербург — мифы и легенды»",
    "price_from": 790,
@@ -391,6 +360,29 @@
    ]
   },
   {
+   "uri": "avtobusnye-ehkskursii/avtobusnaya-ekskursiya-v-pushkin",
+   "title": "Автобусная экскурсия в Пушкин с посещением Янтарной комнаты",
+   "price_from": 3850,
+   "duration": "от 5,5 до 6 часов",
+   "duration_sec": 35999,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnaya-ekskursiya-v-pushkin/avtobusnye-ehkskursii:avtobusnaya-ekskursiya-v-pushkin_min.jpg",
+   "next_time": 1795597200,
+   "tags": [
+    "palace",
+    "trip",
+    "history"
+   ],
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ekskursiya-v-pushkin.jpg",
+   "photo_xl": "img/xl/avtobusnaya-ekskursiya-v-pushkin.jpg",
+   "age_min": 0,
+   "days": [
+    2,
+    4,
+    6
+   ]
+  },
+  {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-lomonosov",
    "title": "Экскурсия в Ораниенбаум (Ломоносов)",
    "price_from": 4150,
@@ -411,30 +403,6 @@
    "days": [
     3,
     5
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/ehkskursiya-v-gatchinu",
-   "title": "Экскурсия в Гатчину — парк и дворец, павильоны",
-   "price_from": 3750,
-   "duration": "6 часов 30 минут",
-   "duration_sec": 35999,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2769927675-1.jpg",
-   "next_time": 1795940100,
-   "tags": [
-    "palace",
-    "trip",
-    "history",
-    "guide"
-   ],
-   "format": "Выезд",
-   "photo": "img/ehkskursiya-v-gatchinu.jpg",
-   "photo_xl": "img/xl/ehkskursiya-v-gatchinu.jpg",
-   "age_min": 0,
-   "days": [
-    2,
-    4,
-    6
    ]
   },
   {
@@ -482,6 +450,30 @@
    "days": [
     2,
     5
+   ]
+  },
+  {
+   "uri": "avtobusnye-ehkskursii/ehkskursiya-v-gatchinu",
+   "title": "Экскурсия в Гатчину — парк и дворец, павильоны",
+   "price_from": 3750,
+   "duration": "6 часов 30 минут",
+   "duration_sec": 35999,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2769927675-1.jpg",
+   "next_time": 1795940100,
+   "tags": [
+    "palace",
+    "trip",
+    "history",
+    "guide"
+   ],
+   "format": "Выезд",
+   "photo": "img/ehkskursiya-v-gatchinu.jpg",
+   "photo_xl": "img/xl/ehkskursiya-v-gatchinu.jpg",
+   "age_min": 0,
+   "days": [
+    2,
+    4,
+    6
    ]
   },
   {
@@ -582,6 +574,31 @@
    ]
   },
   {
+   "uri": "avtobusnye-ehkskursii/ekskursiya-v-petergof",
+   "title": "Автобусная экскурсия в Петергоф с посещением Большого дворца и парка",
+   "price_from": 4750,
+   "duration": "6 часов",
+   "duration_sec": 35999,
+   "img": "https://nevatrip.ru/assets/img/e/ekskursiya-v-petergof/ehkskursiya-v-petergof_x2.jpg",
+   "next_time": 1796113800,
+   "tags": [
+    "palace",
+    "trip",
+    "history",
+    "guide",
+    "museum"
+   ],
+   "format": "Выезд",
+   "photo": "img/ekskursiya-v-petergof.jpg",
+   "photo_xl": "img/xl/ekskursiya-v-petergof.jpg",
+   "age_min": 0,
+   "days": [
+    1,
+    3,
+    5
+   ]
+  },
+  {
    "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi",
    "title": "Обзорная экскурсия по Петербургу с посещением Эрмитажа",
    "price_from": 2050,
@@ -606,31 +623,6 @@
     4,
     5,
     6
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/ekskursiya-v-petergof",
-   "title": "Автобусная экскурсия в Петергоф с посещением Большого дворца и парка",
-   "price_from": 4750,
-   "duration": "6 часов",
-   "duration_sec": 35999,
-   "img": "https://nevatrip.ru/assets/img/e/ekskursiya-v-petergof/ehkskursiya-v-petergof_x2.jpg",
-   "next_time": 1796113800,
-   "tags": [
-    "palace",
-    "trip",
-    "history",
-    "guide",
-    "museum"
-   ],
-   "format": "Выезд",
-   "photo": "img/ekskursiya-v-petergof.jpg",
-   "photo_xl": "img/xl/ekskursiya-v-petergof.jpg",
-   "age_min": 0,
-   "days": [
-    1,
-    3,
-    5
    ]
   },
   {
