@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T02:28:54+00:00",
+ "generated": "2026-11-25T12:54:20+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -29,7 +29,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
-   "next_time": 1797087600,
+   "next_time": 1796223600,
    "tags": [
     "food",
     "newyear",
@@ -44,6 +44,35 @@
    "photo": "img/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
    "photo_xl": "img/xl/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
    "photo_inv": "img/inv/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
+   "age_min": 0,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "uri": "day/progulka-s-ekskursiey-na-teplohode-zimoy",
+   "title": "Новогодняя экскурсия по Неве",
+   "price_from": 1800,
+   "duration": "1 час",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/day/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
+   "next_time": 1796382000,
+   "tags": [
+    "newyear",
+    "water",
+    "kids",
+    "cozy",
+    "short"
+   ],
+   "format": "Теплоход",
+   "photo": "img/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
+   "photo_xl": "img/xl/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
    "age_min": 0,
    "days": [
     0,
@@ -74,35 +103,6 @@
    "photo_xl": "img/xl/katolicheskoe-rozhdestvo-v-peterburge.jpg",
    "age_min": 0,
    "days": null
-  },
-  {
-   "uri": "day/progulka-s-ekskursiey-na-teplohode-zimoy",
-   "title": "Новогодняя экскурсия по Неве",
-   "price_from": 1800,
-   "duration": "1 час",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/day/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
-   "next_time": 1797066000,
-   "tags": [
-    "newyear",
-    "water",
-    "kids",
-    "cozy",
-    "short"
-   ],
-   "format": "Теплоход",
-   "photo": "img/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
-   "photo_xl": "img/xl/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
   },
   {
    "uri": "avtobusnye-ehkskursii/elochnyie-igrushki",
@@ -246,7 +246,7 @@
    "duration": "2 часа 30 минут",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg",
-   "next_time": 1795606200,
+   "next_time": 1795617000,
    "tags": [
     "guide",
     "history",
@@ -265,21 +265,6 @@
     5,
     6
    ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis",
-   "title": "Обзорная экскурсия по Петербургу + сертификат в «Марчеллис»",
-   "price_from": 790,
-   "duration": "2 часа 30 минут",
-   "duration_sec": 9000,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_1909042168-3.jpg",
-   "next_time": 1795606200,
-   "tags": [],
-   "format": "",
-   "photo": "img/obzornaya-ekskursiya-marchellis.jpg",
-   "photo_xl": "img/xl/obzornaya-ekskursiya-marchellis.jpg",
-   "age_min": 0,
-   "days": null
   },
   {
    "uri": "avtobusnye-ehkskursii/peterburg-ekskursii-vyborg",
@@ -312,7 +297,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1795599000,
+   "next_time": 1795685400,
    "tags": [
     "guide",
     "short"
@@ -366,7 +351,7 @@
    "duration": "от 5,5 до 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnaya-ekskursiya-v-pushkin/avtobusnye-ehkskursii:avtobusnaya-ekskursiya-v-pushkin_min.jpg",
-   "next_time": 1795597200,
+   "next_time": 1795770000,
    "tags": [
     "palace",
     "trip",
@@ -483,7 +468,7 @@
    "duration": "от 7,5 до 8 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnayia-ekskursiya-v-pushkin-pavlovsk.jpg",
-   "next_time": 1795591800,
+   "next_time": 1796196600,
    "tags": [
     "palace",
     "trip",
@@ -554,7 +539,7 @@
    "duration": "от 5 до 6 часов",
    "duration_sec": 18001,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2260167989-1.jpg",
-   "next_time": 1795597200,
+   "next_time": 1795683600,
    "tags": [
     "trip",
     "history"
@@ -562,6 +547,29 @@
    "format": "Выезд",
    "photo": "img/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg",
    "photo_xl": "img/xl/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg",
+   "age_min": 0,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "uri": "avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis",
+   "title": "Обзорная экскурсия по Петербургу + сертификат в «Марчеллис»",
+   "price_from": 790,
+   "duration": "2 часа 30 минут",
+   "duration_sec": 9000,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_1909042168-3.jpg",
+   "next_time": 1795617000,
+   "tags": [],
+   "format": "",
+   "photo": "img/obzornaya-ekskursiya-marchellis.jpg",
+   "photo_xl": "img/xl/obzornaya-ekskursiya-marchellis.jpg",
    "age_min": 0,
    "days": [
     0,
@@ -605,7 +613,7 @@
    "duration": "от 2,5 до 3 часов",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/day/shutterstock_2757587345-1.jpg",
-   "next_time": 1795599000,
+   "next_time": 1795685400,
    "tags": [
     "guide",
     "museum",
@@ -632,7 +640,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1795593600,
+   "next_time": 1795617000,
    "tags": [
     "guide",
     "short"
@@ -702,7 +710,7 @@
    "duration": "от 3 до 3,5 часов",
    "duration_sec": 10800,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti.jpg",
-   "next_time": 1795593600,
+   "next_time": 1795680000,
    "tags": [
     "guide",
     "history"
@@ -749,7 +757,7 @@
    "duration": "10 часов ",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-kreposti-severo-zapada.jpg",
-   "next_time": 1795584600,
+   "next_time": 1795930200,
    "tags": [
     "trip",
     "history",
@@ -771,7 +779,7 @@
    "duration": " 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya.jpg",
-   "next_time": 1795591800,
+   "next_time": 1795678200,
    "tags": [
     "palace",
     "trip",
@@ -897,7 +905,7 @@
    "duration": "1 час",
    "duration_sec": 3599,
    "img": "https://nevatrip.ru/assets/img/e/day/ekskursiya-na-kreyser-avrora-1.jpg",
-   "next_time": 1795593600,
+   "next_time": 1795766400,
    "tags": [
     "museum",
     "history",
