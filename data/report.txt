@@ -1,9 +1,8 @@
-Активных: 40, пропущено: 13. Теги из: Google-таблица
+Активных: 42, пропущено: 11. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
   day/detskaya-novogodnyaya-elka
   avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis
 
 В таблице есть, среди активных нет:
-  peshie-ekskursii/ekskursiya-v-kunstkameru  (нет ближайшей даты)
-  peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha  (нет ближайшей даты)
+  нет

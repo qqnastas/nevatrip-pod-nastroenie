@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25T22:32:14+00:00",
+ "generated": "2026-11-26T05:04:18+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -56,6 +56,63 @@
    ]
   },
   {
+   "uri": "day/katolicheskoe-rozhdestvo-v-peterburge",
+   "title": "Католическое рождество в Петербурге — специальный рейс 24 декабря 2026",
+   "price_from": 1890,
+   "duration": "3 часа",
+   "duration_sec": 10798,
+   "img": "https://nevatrip.ru/assets/img/e/day/katolicheskoe-rozhdestvo-v-peterburge.jpg",
+   "next_time": 1798128000,
+   "tags": [
+    "newyear",
+    "festive",
+    "history",
+    "guide"
+   ],
+   "format": "Автобус",
+   "photo": "img/katolicheskoe-rozhdestvo-v-peterburge.jpg",
+   "photo_xl": "img/xl/katolicheskoe-rozhdestvo-v-peterburge.jpg",
+   "age_min": 0,
+   "days": null
+  },
+  {
+   "uri": "day/detskaya-novogodnyaya-elka",
+   "title": "Детская новогодняя елка",
+   "price_from": 1790,
+   "duration": "2 часа (спектакль 50 мин.)",
+   "duration_sec": null,
+   "img": "https://nevatrip.ru/assets/img/e/day/16-1.jpg",
+   "next_time": 1799055000,
+   "tags": [],
+   "format": "",
+   "photo": "img/detskaya-novogodnyaya-elka.jpg",
+   "photo_xl": "img/xl/detskaya-novogodnyaya-elka.jpg",
+   "age_min": 0,
+   "days": null
+  },
+  {
+   "uri": "avtobusnye-ehkskursii/elochnyie-igrushki",
+   "title": "Экскурсия на фабрику елочных игрушек в Крестцы",
+   "price_from": 5950,
+   "duration": "13 часов",
+   "duration_sec": 36001,
+   "img": "https://nevatrip.ru/assets/img/e/day/elochnyie-igrushki.jpg",
+   "next_time": 1797395400,
+   "tags": [
+    "masterclass",
+    "trip",
+    "newyear",
+    "food",
+    "kids",
+    "guide"
+   ],
+   "format": "Выезд",
+   "photo": "img/elochnyie-igrushki.jpg",
+   "photo_xl": "img/xl/elochnyie-igrushki.jpg",
+   "age_min": 0,
+   "days": null
+  },
+  {
    "uri": "day/progulka-s-ekskursiey-na-teplohode-zimoy",
    "title": "Новогодняя экскурсия по Неве",
    "price_from": 1800,
@@ -83,48 +140,6 @@
     5,
     6
    ]
-  },
-  {
-   "uri": "day/katolicheskoe-rozhdestvo-v-peterburge",
-   "title": "Католическое рождество в Петербурге — специальный рейс 24 декабря 2026",
-   "price_from": 1890,
-   "duration": "3 часа",
-   "duration_sec": 10798,
-   "img": "https://nevatrip.ru/assets/img/e/day/katolicheskoe-rozhdestvo-v-peterburge.jpg",
-   "next_time": 1798128000,
-   "tags": [
-    "newyear",
-    "festive",
-    "history",
-    "guide"
-   ],
-   "format": "Автобус",
-   "photo": "img/katolicheskoe-rozhdestvo-v-peterburge.jpg",
-   "photo_xl": "img/xl/katolicheskoe-rozhdestvo-v-peterburge.jpg",
-   "age_min": 0,
-   "days": null
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/elochnyie-igrushki",
-   "title": "Экскурсия на фабрику елочных игрушек в Крестцы",
-   "price_from": 5950,
-   "duration": "13 часов",
-   "duration_sec": 36001,
-   "img": "https://nevatrip.ru/assets/img/e/day/elochnyie-igrushki.jpg",
-   "next_time": 1797395400,
-   "tags": [
-    "masterclass",
-    "trip",
-    "newyear",
-    "food",
-    "kids",
-    "guide"
-   ],
-   "format": "Выезд",
-   "photo": "img/elochnyie-igrushki.jpg",
-   "photo_xl": "img/xl/elochnyie-igrushki.jpg",
-   "age_min": 0,
-   "days": null
   },
   {
    "uri": "avtobusnye-ehkskursii/novogodnij-kronshtadt",
@@ -240,21 +255,6 @@
    "days": null
   },
   {
-   "uri": "day/detskaya-novogodnyaya-elka",
-   "title": "Детская новогодняя елка",
-   "price_from": 1790,
-   "duration": "2 часа (спектакль 50 мин.)",
-   "duration_sec": null,
-   "img": "https://nevatrip.ru/assets/img/e/day/16-1.jpg",
-   "next_time": 1799055000,
-   "tags": [],
-   "format": "",
-   "photo": "img/detskaya-novogodnyaya-elka.jpg",
-   "photo_xl": "img/xl/detskaya-novogodnyaya-elka.jpg",
-   "age_min": 0,
-   "days": null
-  },
-  {
    "uri": "avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg",
    "title": "Обзорная автобусная экскурсия по центру Санкт-Петербурга",
    "price_from": 790,
@@ -303,32 +303,6 @@
     3,
     4,
     5
-   ]
-  },
-  {
-   "uri": "day/obzornaya-ekskursiya-po-peterburgu",
-   "title": "Обзорная экскурсия «Первое свидание с Петербургом»",
-   "price_from": 590,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1795685400,
-   "tags": [
-    "guide",
-    "short"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg",
-   "photo_xl": "img/xl/obzornaya-ekskursiya-po-peterburgu.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
    ]
   },
   {
@@ -430,26 +404,29 @@
    ]
   },
   {
-   "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu",
-   "title": "Экскурсия в Старую Ладогу",
-   "price_from": 3890,
-   "duration": "10 часов",
-   "duration_sec": 35999,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
-   "next_time": 1795845600,
+   "uri": "day/obzornaya-ekskursiya-po-peterburgu",
+   "title": "Обзорная экскурсия «Первое свидание с Петербургом»",
+   "price_from": 590,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
+   "next_time": 1795685400,
    "tags": [
-    "trip",
-    "history",
     "guide",
-    "food"
+    "short"
    ],
-   "format": "Выезд",
-   "photo": "img/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
-   "photo_xl": "img/xl/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
+   "format": "Автобус",
+   "photo": "img/obzornaya-ekskursiya-po-peterburgu.jpg",
+   "photo_xl": "img/xl/obzornaya-ekskursiya-po-peterburgu.jpg",
    "age_min": 0,
    "days": [
+    0,
+    1,
     2,
-    5
+    3,
+    4,
+    5,
+    6
    ]
   },
   {
@@ -589,6 +566,29 @@
    "days": null
   },
   {
+   "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu",
+   "title": "Экскурсия в Старую Ладогу",
+   "price_from": 3890,
+   "duration": "10 часов",
+   "duration_sec": 35999,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
+   "next_time": 1795845600,
+   "tags": [
+    "trip",
+    "history",
+    "guide",
+    "food"
+   ],
+   "format": "Выезд",
+   "photo": "img/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
+   "photo_xl": "img/xl/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
+   "age_min": 0,
+   "days": [
+    2,
+    5
+   ]
+  },
+  {
    "uri": "avtobusnye-ehkskursii/ekskursiya-v-petergof",
    "title": "Автобусная экскурсия в Петергоф с посещением Большого дворца и парка",
    "price_from": 4750,
@@ -614,6 +614,32 @@
    ]
   },
   {
+   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
+   "title": "Обзорная экскурсия на автобусе по центру Санкт-Петербурга",
+   "price_from": 890,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "next_time": 1795680000,
+   "tags": [
+    "guide",
+    "short"
+   ],
+   "format": "Автобус",
+   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "photo_xl": "img/xl/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "age_min": 0,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
+  },
+  {
    "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi",
    "title": "Обзорная экскурсия по Петербургу с посещением Эрмитажа",
    "price_from": 2050,
@@ -632,32 +658,6 @@
    "photo_xl": "img/xl/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg",
    "age_min": 0,
    "days": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
-   "title": "Обзорная экскурсия на автобусе по центру Санкт-Петербурга",
-   "price_from": 890,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1795680000,
-   "tags": [
-    "guide",
-    "short"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "photo_xl": "img/xl/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "age_min": 0,
-   "days": [
-    0,
     1,
     2,
     3,
@@ -808,6 +808,32 @@
    ]
   },
   {
+   "uri": "peshie-ekskursii/ekskursiya-v-kunstkameru",
+   "title": "Экскурсия в Кунсткамеру",
+   "price_from": 1550,
+   "duration": "1 час",
+   "duration_sec": 3599,
+   "img": "https://nevatrip.ru/assets/img/e/day/ekskursiya-v-kunstkameru.jpg",
+   "next_time": 1795775400,
+   "tags": [
+    "museum",
+    "indoor",
+    "short",
+    "history",
+    "guide"
+   ],
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-kunstkameru.jpg",
+   "photo_xl": "img/xl/ekskursiya-v-kunstkameru.jpg",
+   "age_min": 0,
+   "days": [
+    1,
+    4,
+    5,
+    6
+   ]
+  },
+  {
    "uri": "muzei/obzornaya-ekskursiya-po-russkomu-muzeyu",
    "title": "Обзорная экскурсия по Русскому музею",
    "price_from": 1920,
@@ -899,6 +925,30 @@
    "age_min": 0,
    "days": [
     2,
+    4,
+    5,
+    6
+   ]
+  },
+  {
+   "uri": "peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha",
+   "title": "Экскурсия в Бриллиантовую кладовую Эрмитажа в мини-группе",
+   "price_from": 3750,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/day/4aaebd9d-ad8b-4f5c-83fb-872b0c770b44-1.jpg",
+   "next_time": 1795775400,
+   "tags": [
+    "museum",
+    "indoor",
+    "guide",
+    "short"
+   ],
+   "format": "Пешком",
+   "photo": "img/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha.jpg",
+   "photo_xl": "img/xl/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha.jpg",
+   "age_min": 0,
+   "days": [
     4,
     5,
     6
