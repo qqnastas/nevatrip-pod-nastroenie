@@ -1,7 +1,9 @@
-Активных: 42, пропущено: 11. Теги из: Google-таблица
+Активных: 44, пропущено: 10. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
+  avtobusnye-ehkskursii/obzornaya-ekskursiya-i-tropa-deda-moroza
   day/detskaya-novogodnyaya-elka
+  avtobusnye-ehkskursii/ekskursiya-v-kronshtadt
   avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis
 
 В таблице есть, среди активных нет:
