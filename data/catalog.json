@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-26T15:18:35+00:00",
+ "generated": "2026-11-26T23:53:50+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -88,7 +88,15 @@
    "photo": "img/obzornaya-ekskursiya-i-tropa-deda-moroza.jpg",
    "photo_xl": "img/xl/obzornaya-ekskursiya-i-tropa-deda-moroza.jpg",
    "age_min": 0,
-   "days": null
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "uri": "day/detskaya-novogodnyaya-elka",
@@ -593,7 +601,15 @@
    "photo": "img/obzornaya-ekskursiya-marchellis.jpg",
    "photo_xl": "img/xl/obzornaya-ekskursiya-marchellis.jpg",
    "age_min": 0,
-   "days": null
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu",
