@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T08:32:24+00:00",
+ "generated": "2026-11-27T18:59:21+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -21,39 +21,6 @@
    "photo_xl": "img/xl/ehkskursiya-v-novogodnyuyu-noch.jpg",
    "age_min": 0,
    "days": null
-  },
-  {
-   "uri": "day/rozhdestvenskiy-uzhin-kruiz-po-neve",
-   "title": "Рождественский ужин-круиз по Неве",
-   "price_from": 2000,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/day/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
-   "next_time": 1796223600,
-   "tags": [
-    "food",
-    "newyear",
-    "lights",
-    "water",
-    "cozy",
-    "music",
-    "night",
-    "short"
-   ],
-   "format": "Теплоход",
-   "photo": "img/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
-   "photo_xl": "img/xl/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
-   "photo_inv": "img/inv/rozhdestvenskiy-uzhin-kruiz-po-neve.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
   },
   {
    "uri": "day/katolicheskoe-rozhdestvo-v-peterburge",
@@ -106,6 +73,27 @@
    "days": null
   },
   {
+   "uri": "avtobusnye-ehkskursii/novogodnij-kronshtadt",
+   "title": "Новогодний Кронштадт",
+   "price_from": 2290,
+   "duration": "от 5 до 5,5 часов",
+   "duration_sec": 17999,
+   "img": "https://nevatrip.ru/assets/img/e/day/novogodnij-kronshtadt.jpg",
+   "next_time": 1798374600,
+   "tags": [
+    "trip",
+    "newyear",
+    "lights",
+    "night",
+    "guide"
+   ],
+   "format": "Выезд",
+   "photo": "img/novogodnij-kronshtadt.jpg",
+   "photo_xl": "img/xl/novogodnij-kronshtadt.jpg",
+   "age_min": 0,
+   "days": null
+  },
+  {
    "uri": "avtobusnye-ehkskursii/elochnyie-igrushki",
    "title": "Экскурсия на фабрику елочных игрушек в Крестцы",
    "price_from": 5950,
@@ -128,23 +116,22 @@
    "days": null
   },
   {
-   "uri": "day/progulka-s-ekskursiey-na-teplohode-zimoy",
-   "title": "Новогодняя экскурсия по Неве",
-   "price_from": 1800,
-   "duration": "1 час",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/day/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
-   "next_time": 1796382000,
+   "uri": "avtobusnye-ehkskursii/novogodnyaya-ehkskursiya-v-zimnie-kanikuly",
+   "title": "Автобусная экскурсия «Новогодняя сказка Петербурга»",
+   "price_from": 1490,
+   "duration": "от 2 до 2,5 часов",
+   "duration_sec": 10798,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2054683877-1.jpg",
+   "next_time": 1798383600,
    "tags": [
     "newyear",
-    "water",
-    "kids",
-    "cozy",
-    "short"
+    "lights",
+    "short",
+    "guide"
    ],
-   "format": "Теплоход",
-   "photo": "img/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
-   "photo_xl": "img/xl/progulka-s-ekskursiey-na-teplohode-zimoy.jpg",
+   "format": "Автобус",
+   "photo": "img/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg",
+   "photo_xl": "img/xl/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg",
    "age_min": 0,
    "days": [
     0,
@@ -155,27 +142,6 @@
     5,
     6
    ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/novogodnij-kronshtadt",
-   "title": "Новогодний Кронштадт",
-   "price_from": 2290,
-   "duration": "от 5 до 5,5 часов",
-   "duration_sec": 17999,
-   "img": "https://nevatrip.ru/assets/img/e/day/novogodnij-kronshtadt.jpg",
-   "next_time": 1798374600,
-   "tags": [
-    "trip",
-    "newyear",
-    "lights",
-    "night",
-    "guide"
-   ],
-   "format": "Выезд",
-   "photo": "img/novogodnij-kronshtadt.jpg",
-   "photo_xl": "img/xl/novogodnij-kronshtadt.jpg",
-   "age_min": 0,
-   "days": null
   },
   {
    "uri": "avtobusnye-ehkskursii/ozhidanie-rozhdestva",
@@ -220,34 +186,6 @@
    "days": null
   },
   {
-   "uri": "avtobusnye-ehkskursii/novogodnyaya-ehkskursiya-v-zimnie-kanikuly",
-   "title": "Автобусная экскурсия «Новогодняя сказка Петербурга»",
-   "price_from": 1490,
-   "duration": "от 2 до 2,5 часов",
-   "duration_sec": 10798,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2054683877-1.jpg",
-   "next_time": 1798383600,
-   "tags": [
-    "newyear",
-    "lights",
-    "short",
-    "guide"
-   ],
-   "format": "Автобус",
-   "photo": "img/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg",
-   "photo_xl": "img/xl/novogodnyaya-ehkskursiya-v-zimnie-kanikuly.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/rozhdestvenskij-vyborg",
    "title": "Рождественский Выборг",
    "price_from": 4850,
@@ -276,7 +214,7 @@
    "duration": "2 часа 30 минут",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-avtobusnaya-ekskursiya-sankt-peterburg.jpg",
-   "next_time": 1795779000,
+   "next_time": 1795865400,
    "tags": [
     "guide",
     "history",
@@ -327,7 +265,7 @@
    "duration": "от 2 до 2,5 часов",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/zima/misticheskij-peterburg-ekskursiya_zima.jpg",
-   "next_time": 1795789800,
+   "next_time": 1795876200,
    "tags": [
     "mystic",
     "night",
@@ -378,7 +316,7 @@
    "duration": "от 5,5 до 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnaya-ekskursiya-v-pushkin/avtobusnye-ehkskursii:avtobusnaya-ekskursiya-v-pushkin_min.jpg",
-   "next_time": 1795770000,
+   "next_time": 1795942800,
    "tags": [
     "palace",
     "trip",
@@ -401,7 +339,7 @@
    "duration": "от 6 до 6,5 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/ekskursiya-v-kronshtadt/ekskursiya-v-kronshtadt-1.jpg",
-   "next_time": 1795770000,
+   "next_time": 1795942800,
    "tags": [],
    "format": "",
    "photo": "img/ekskursiya-v-kronshtadt.jpg",
@@ -485,7 +423,7 @@
    "duration": "от 2,5 до 3 часов",
    "duration_sec": 10799,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/vecher-gl-1.jpg",
-   "next_time": 1795791600,
+   "next_time": 1795878000,
    "tags": [
     "night",
     "guide"
@@ -511,7 +449,7 @@
    "duration": "от 5 до 6 часов",
    "duration_sec": 18001,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2260167989-1.jpg",
-   "next_time": 1795770000,
+   "next_time": 1795860900,
    "tags": [
     "trip",
     "history"
@@ -537,21 +475,13 @@
    "duration": "2 часа 30 минут",
    "duration_sec": 9000,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_1909042168-3.jpg",
-   "next_time": 1795779000,
+   "next_time": 1795865400,
    "tags": [],
    "format": "",
    "photo": "img/obzornaya-ekskursiya-marchellis.jpg",
    "photo_xl": "img/xl/obzornaya-ekskursiya-marchellis.jpg",
    "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
+   "days": null
   },
   {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-gatchinu",
@@ -584,7 +514,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1795771800,
+   "next_time": 1795858200,
    "tags": [
     "guide",
     "short"
@@ -610,7 +540,7 @@
    "duration": "10 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-staruyu-ladogu.jpg",
-   "next_time": 1795845600,
+   "next_time": 1796450400,
    "tags": [
     "trip",
     "history",
@@ -658,7 +588,7 @@
    "duration": "от 2,5 до 3 часов",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/day/shutterstock_2757587345-1.jpg",
-   "next_time": 1795771800,
+   "next_time": 1795858200,
    "tags": [
     "guide",
     "museum",
@@ -685,7 +615,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1795789800,
+   "next_time": 1795852800,
    "tags": [
     "guide",
     "short"
@@ -733,7 +663,7 @@
    "duration": "от 12 до 13 часов",
    "duration_sec": 36001,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2688176861-1.jpg",
-   "next_time": 1795842000,
+   "next_time": 1796101200,
    "tags": [
     "trip",
     "history",
@@ -852,7 +782,7 @@
    "duration": "1 час",
    "duration_sec": 3599,
    "img": "https://nevatrip.ru/assets/img/e/day/ekskursiya-v-kunstkameru.jpg",
-   "next_time": 1795775400,
+   "next_time": 1795861800,
    "tags": [
     "museum",
     "indoor",
@@ -900,7 +830,7 @@
    "duration": "2 часа 30 минут",
    "duration_sec": 10798,
    "img": "https://nevatrip.ru/assets/img/e/day/posledniy-put-aleksandra-ii-1.jpg",
-   "next_time": 1795854600,
+   "next_time": 1796459400,
    "tags": [
     "history",
     "guide"
@@ -925,7 +855,7 @@
    "duration": "2 часа",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/17ee48cc-b590-45a2-8e81-c7c372bd81bf-1.jpg",
-   "next_time": 1795782600,
+   "next_time": 1795870800,
    "tags": [
     "palace",
     "indoor",
@@ -944,13 +874,38 @@
    ]
   },
   {
+   "uri": "peshie-ekskursii/ekskursiya-na-kreyser-avrora",
+   "title": "Экскурсия на крейсер «Аврора» без очереди",
+   "price_from": 1980,
+   "duration": "1 час",
+   "duration_sec": 3599,
+   "img": "https://nevatrip.ru/assets/img/e/day/ekskursiya-na-kreyser-avrora-1.jpg",
+   "next_time": 1795852800,
+   "tags": [
+    "museum",
+    "history",
+    "guide",
+    "short"
+   ],
+   "format": "Пешком",
+   "photo": "img/ekskursiya-na-kreyser-avrora.jpg",
+   "photo_xl": "img/xl/ekskursiya-na-kreyser-avrora.jpg",
+   "age_min": 0,
+   "days": [
+    2,
+    4,
+    5,
+    6
+   ]
+  },
+  {
    "uri": "peshie-ekskursii/ekskursiya-v-brilliantovuyu-kladovuyu-ermitazha",
    "title": "Экскурсия в Бриллиантовую кладовую Эрмитажа в мини-группе",
    "price_from": 3750,
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/4aaebd9d-ad8b-4f5c-83fb-872b0c770b44-1.jpg",
-   "next_time": 1795775400,
+   "next_time": 1795861800,
    "tags": [
     "museum",
     "indoor",
