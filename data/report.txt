@@ -1,4 +1,4 @@
-Активных: 44, пропущено: 10. Теги из: Google-таблица
+Активных: 43, пропущено: 11. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
   avtobusnye-ehkskursii/obzornaya-ekskursiya-i-tropa-deda-moroza
@@ -7,4 +7,4 @@
   avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis
 
 В таблице есть, среди активных нет:
-  нет
+  peshie-ekskursii/ekskursiya-na-kreyser-avrora  (дата в прошлом)
