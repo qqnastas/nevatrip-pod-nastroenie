@@ -1,4 +1,4 @@
-Активных: 42, пропущено: 12. Теги из: Google-таблица
+Активных: 39, пропущено: 15. Теги из: Google-таблица
 
 Активные без тегов (не участвуют в подборе):
   avtobusnye-ehkskursii/obzornaya-ekskursiya-i-tropa-deda-moroza
@@ -9,3 +9,6 @@
 В таблице есть, среди активных нет:
   day/rozhdestvenskiy-uzhin-kruiz-po-neve  (нет ближайшей даты)
   day/progulka-s-ekskursiey-na-teplohode-zimoy  (нет ближайшей даты)
+  avtobusnye-ehkskursii/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov  (дата в прошлом)
+  avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi  (дата в прошлом)
+  avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh  (нет ближайшей даты)

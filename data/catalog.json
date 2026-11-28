@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27T18:59:21+00:00",
+ "generated": "2026-11-28T10:27:06+00:00",
  "items": [
   {
    "uri": "day/ehkskursiya-v-novogodnyuyu-noch",
@@ -55,7 +55,15 @@
    "photo": "img/obzornaya-ekskursiya-i-tropa-deda-moroza.jpg",
    "photo_xl": "img/xl/obzornaya-ekskursiya-i-tropa-deda-moroza.jpg",
    "age_min": 0,
-   "days": null
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "uri": "day/detskaya-novogodnyaya-elka",
@@ -241,7 +249,7 @@
    "duration": "11 часов",
    "duration_sec": 36001,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2621995737-1.jpg",
-   "next_time": 1795844700,
+   "next_time": 1796103900,
    "tags": [
     "trip",
     "history",
@@ -293,7 +301,7 @@
    "duration": "от 6 до 6,5 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/ehkskursiya-v-lomonosov.jpg",
-   "next_time": 1795856400,
+   "next_time": 1796288400,
    "tags": [
     "palace",
     "trip",
@@ -345,7 +353,15 @@
    "photo": "img/ekskursiya-v-kronshtadt.jpg",
    "photo_xl": "img/xl/ekskursiya-v-kronshtadt.jpg",
    "age_min": 0,
-   "days": null
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ]
   },
   {
    "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-v-strelnu",
@@ -368,6 +384,32 @@
    "days": [
     0,
     3,
+    6
+   ]
+  },
+  {
+   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
+   "title": "Обзорная экскурсия на автобусе по центру Санкт-Петербурга",
+   "price_from": 890,
+   "duration": "1 час 30 минут",
+   "duration_sec": 7198,
+   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "next_time": 1795876200,
+   "tags": [
+    "guide",
+    "short"
+   ],
+   "format": "Автобус",
+   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "photo_xl": "img/xl/obzornaya-ehkskursiiya-po-peterburgu.jpg",
+   "age_min": 0,
+   "days": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
     6
    ]
   },
@@ -443,32 +485,6 @@
    ]
   },
   {
-   "uri": "avtobusnye-ehkskursii/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov",
-   "title": "Экскурсия в Кронштадт: Морской собор и парк «Остров фортов»",
-   "price_from": 2400,
-   "duration": "от 5 до 6 часов",
-   "duration_sec": 18001,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/shutterstock_2260167989-1.jpg",
-   "next_time": 1795860900,
-   "tags": [
-    "trip",
-    "history"
-   ],
-   "format": "Выезд",
-   "photo": "img/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg",
-   "photo_xl": "img/xl/ekskursiya-v-kronshtadt-morskoy-sobor-ostrov-fortov.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/obzornaya-ekskursiya-marchellis",
    "title": "Обзорная экскурсия по Петербургу + сертификат в «Марчеллис»",
    "price_from": 790,
@@ -514,7 +530,7 @@
    "duration": "1 час 30 минут",
    "duration_sec": 7198,
    "img": "https://nevatrip.ru/assets/img/e/day/obzornaya-ekskursiya-po-peterburgu-1.jpg",
-   "next_time": 1795858200,
+   "next_time": 1795944600,
    "tags": [
     "guide",
     "short"
@@ -582,81 +598,6 @@
    ]
   },
   {
-   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi",
-   "title": "Обзорная экскурсия по Петербургу с посещением Эрмитажа",
-   "price_from": 2050,
-   "duration": "от 2,5 до 3 часов",
-   "duration_sec": 10798,
-   "img": "https://nevatrip.ru/assets/img/e/day/shutterstock_2757587345-1.jpg",
-   "next_time": 1795858200,
-   "tags": [
-    "guide",
-    "museum",
-    "palace",
-    "indoor"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg",
-   "photo_xl": "img/xl/obzornaya-ehkskursiya-s-poseshcheniem-ehrmitazha-bez-ocheredi.jpg",
-   "age_min": 0,
-   "days": [
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu",
-   "title": "Обзорная экскурсия на автобусе по центру Санкт-Петербурга",
-   "price_from": 890,
-   "duration": "1 час 30 минут",
-   "duration_sec": 7198,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "next_time": 1795852800,
-   "tags": [
-    "guide",
-    "short"
-   ],
-   "format": "Автобус",
-   "photo": "img/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "photo_xl": "img/xl/obzornaya-ehkskursiiya-po-peterburgu.jpg",
-   "age_min": 0,
-   "days": [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6
-   ]
-  },
-  {
-   "uri": "avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh",
-   "title": "Автобусная экскурсия «Дворцы Петербургской знати»",
-   "price_from": 2590,
-   "duration": "от 3,5 до 4 часов",
-   "duration_sec": 17999,
-   "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/avtobusnaya-ehkskursiya-dvorcy-romanovyh_min.jpg",
-   "next_time": 1795860000,
-   "tags": [
-    "palace",
-    "history",
-    "guide"
-   ],
-   "format": "Автобус",
-   "photo": "img/avtobusnaya-ehkskursiya-dvorcy-romanovyh.jpg",
-   "photo_xl": "img/xl/avtobusnaya-ehkskursiya-dvorcy-romanovyh.jpg",
-   "age_min": 0,
-   "days": [
-    1,
-    5
-   ]
-  },
-  {
    "uri": "avtobusnye-ehkskursii/ehkskursiya-v-velikij-novgorod",
    "title": "Экскурсия в Великий Новгород на 1 день из Санкт-Петербурга",
    "price_from": 4190,
@@ -685,7 +626,7 @@
    "duration": "от 3 до 3,5 часов",
    "duration_sec": 10800,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/obzornaya-ekskursiya-s-posescheniem-petropavlovskoy-kreposti.jpg",
-   "next_time": 1795852800,
+   "next_time": 1795939200,
    "tags": [
     "guide",
     "history"
@@ -754,7 +695,7 @@
    "duration": " 6 часов",
    "duration_sec": 35999,
    "img": "https://nevatrip.ru/assets/img/e/avtobusnye-ehkskursii/ekskursiya-v-pushkin-s-poseshcheniem-liceya.jpg",
-   "next_time": 1795851000,
+   "next_time": 1795937400,
    "tags": [
     "palace",
     "trip",
@@ -880,7 +821,7 @@
    "duration": "1 час",
    "duration_sec": 3599,
    "img": "https://nevatrip.ru/assets/img/e/day/ekskursiya-na-kreyser-avrora-1.jpg",
-   "next_time": 1795852800,
+   "next_time": 1795867200,
    "tags": [
     "museum",
     "history",
